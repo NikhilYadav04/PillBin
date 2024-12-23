@@ -14,7 +14,7 @@ class Page2 extends StatefulWidget {
   State<Page2> createState() => _Page2State();
 }
 
-class _Page2State extends State<Page2> {
+class _Page2State extends State<Page2> with SingleTickerProviderStateMixin{
 
   @override
   void initState() {
