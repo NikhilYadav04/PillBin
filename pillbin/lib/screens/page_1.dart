@@ -17,8 +17,11 @@ class Page1 extends StatefulWidget {
   State<Page1> createState() => _Page1State();
 }
 
-class _Page1State extends State<Page1> {
+class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   late FlickManager _flickManager;
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _positionAnimation;
 
   @override
   void initState() {
@@ -33,6 +36,21 @@ class _Page1State extends State<Page1> {
 
     // Add listener to pause the video when the page is not visible
     widget.pageNotifier.addListener(_handlePageChange);
+
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _positionAnimation = Tween<double>(begin: -50, end: 0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
   }
 
   @override
@@ -87,52 +105,64 @@ class _Page1State extends State<Page1> {
         ),
 
         //* Card
-        FractionallySizedBox(
-          alignment: Alignment.bottomCenter,
-          heightFactor: 0.70,
-          widthFactor: 0.9,
-          child: Container(
-            margin:
-                EdgeInsets.only(bottom: 7 * SizeConfig.heightMultiplier),
-            height: 54.77 * SizeConfig.heightMultiplier,
-            width: 17.85 * SizeConfig.widthMultiplier,
-            decoration: BoxDecoration(
-              color: Colors.lightBlueAccent,
-              borderRadius:
-                  BorderRadius.circular(1.5 * SizeConfig.heightMultiplier),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 5.580 * SizeConfig.widthMultiplier),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 5*SizeConfig.heightMultiplier,),
-                  Text(
-                    maxLines: 2,
-                    "SAFE\nDISPOSAL,",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: "Hanken_Medium",
-                        fontSize: 5.89 * SizeConfig.heightMultiplier),
-                  ),
-                  Text(
-                    maxLines: 2,
-                    "SAFER\nTOMORROW",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: "Hanken_Bold",
-                        fontSize: 5.89 * SizeConfig.heightMultiplier),
-                  ),
-                  SizedBox(
-                    height: 3.160 * SizeConfig.heightMultiplier,
-                  ),
-                  Button(widget.ontap),
-                ],
-              ),
-            ),
-          ),
-        )
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(0, _positionAnimation.value),
+              child: Opacity(
+                  opacity: _opacityAnimation.value,
+                  child: FractionallySizedBox(
+                    alignment: Alignment.bottomCenter,
+                    heightFactor: 0.70,
+                    widthFactor: 0.9,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: 7 * SizeConfig.heightMultiplier),
+                      height: 54.77 * SizeConfig.heightMultiplier,
+                      width: 17.85 * SizeConfig.widthMultiplier,
+                      decoration: BoxDecoration(
+                        color: Colors.lightBlueAccent,
+                        borderRadius: BorderRadius.circular(
+                            1.5 * SizeConfig.heightMultiplier),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 5.580 * SizeConfig.widthMultiplier),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 5 * SizeConfig.heightMultiplier,
+                            ),
+                            Text(
+                              maxLines: 2,
+                              "SAFE\nDISPOSAL,",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Medium",
+                                  fontSize: 5.89 * SizeConfig.heightMultiplier),
+                            ),
+                            Text(
+                              maxLines: 2,
+                              "SAFER\nTOMORROW",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize: 5.89 * SizeConfig.heightMultiplier),
+                            ),
+                            SizedBox(
+                              height: 3.160 * SizeConfig.heightMultiplier,
+                            ),
+                            Button(widget.ontap),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )),
+            );
+          },
+        ),
       ],
     );
   }
