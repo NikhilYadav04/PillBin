@@ -79,32 +79,35 @@ class _Page1State extends State<Page1> {
               alignment: Alignment.topLeft,
               child: Image.asset(
                 "assets/Logo.png",
-                height: 15.800*SizeConfig.heightMultiplier,width: 33.482*SizeConfig.widthMultiplier,
+                height: 15.800 * SizeConfig.heightMultiplier,
+                width: 33.482 * SizeConfig.widthMultiplier,
               ),
             ),
           ),
         ),
 
         //* Card
-        Positioned(
-          bottom: 17.089 * SizeConfig.widthMultiplier,
-          left: 2.317 * SizeConfig.heightMultiplier,
-          right: 2.317 * SizeConfig.heightMultiplier,
+        FractionallySizedBox(
+          alignment: Alignment.bottomCenter,
+          heightFactor: 0.70,
+          widthFactor: 0.9,
           child: Container(
+            margin:
+                EdgeInsets.only(bottom: 7 * SizeConfig.heightMultiplier),
             height: 54.77 * SizeConfig.heightMultiplier,
             width: 17.85 * SizeConfig.widthMultiplier,
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent,
               borderRadius:
-                  BorderRadius.circular(1.26 * SizeConfig.heightMultiplier),
+                  BorderRadius.circular(1.5 * SizeConfig.heightMultiplier),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  vertical: 5.79 * SizeConfig.heightMultiplier,
                   horizontal: 5.580 * SizeConfig.widthMultiplier),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 5*SizeConfig.heightMultiplier,),
                   Text(
                     maxLines: 2,
                     "SAFE\nDISPOSAL,",
@@ -129,7 +132,7 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
-        ),
+        )
       ],
     );
   }
