@@ -1,5 +1,6 @@
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:video_player/video_player.dart';
 
 class Page1 extends StatefulWidget {
@@ -28,6 +29,7 @@ class _Page1State extends State<Page1> {
         ..setLooping(true)
         ..initialize(),
     );
+    SizeConfig;
 
     // Add listener to pause the video when the page is not visible
     widget.pageNotifier.addListener(_handlePageChange);
@@ -71,12 +73,13 @@ class _Page1State extends State<Page1> {
         FractionallySizedBox(
           heightFactor: 0.85,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: EdgeInsets.symmetric(
+                horizontal: 4.017 * SizeConfig.widthMultiplier),
             child: Align(
               alignment: Alignment.topLeft,
               child: Image.asset(
                 "assets/Logo.png",
-                scale: 3.1,
+                height: 15.800*SizeConfig.heightMultiplier,width: 33.482*SizeConfig.widthMultiplier,
               ),
             ),
           ),
@@ -84,37 +87,42 @@ class _Page1State extends State<Page1> {
 
         //* Card
         Positioned(
-          bottom: 90,
-          left: 22,
-          right: 22,
+          bottom: 17.089 * SizeConfig.widthMultiplier,
+          left: 2.317 * SizeConfig.heightMultiplier,
+          right: 2.317 * SizeConfig.heightMultiplier,
           child: Container(
-            height: 520,
-            width: 80,
+            height: 54.77 * SizeConfig.heightMultiplier,
+            width: 17.85 * SizeConfig.widthMultiplier,
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius:
+                  BorderRadius.circular(1.26 * SizeConfig.heightMultiplier),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 55, horizontal: 25),
+              padding: EdgeInsets.symmetric(
+                  vertical: 5.79 * SizeConfig.heightMultiplier,
+                  horizontal: 5.580 * SizeConfig.widthMultiplier),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
+                    maxLines: 2,
                     "SAFE\nDISPOSAL,",
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: "Hanken_Medium",
-                        fontSize: 56),
+                        fontSize: 5.89 * SizeConfig.heightMultiplier),
                   ),
-                  const Text(
+                  Text(
+                    maxLines: 2,
                     "SAFER\nTOMORROW",
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: "Hanken_Bold",
-                        fontSize: 56),
+                        fontSize: 5.89 * SizeConfig.heightMultiplier),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 3.160 * SizeConfig.heightMultiplier,
                   ),
                   Button(widget.ontap),
                 ],
@@ -130,19 +138,21 @@ class _Page1State extends State<Page1> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 55,
-        width: 240,
+        height: 5.793 * SizeConfig.heightMultiplier,
+        width: 53.571 * SizeConfig.widthMultiplier,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius:
+              BorderRadius.circular(3.160 * SizeConfig.heightMultiplier),
           color: const Color.fromARGB(255, 235, 229, 229),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
+            maxLines: 1,
             "Know More",
             style: TextStyle(
               color: Colors.black,
               fontFamily: "Hanken_Medium",
-              fontSize: 22,
+              fontSize: 2.317 * SizeConfig.heightMultiplier,
               decoration: TextDecoration.underline,
             ),
           ),

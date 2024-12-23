@@ -11,10 +11,11 @@ import 'package:pillbin/screens/page_7.dart';
 import 'package:pillbin/screens/page_8.dart';
 import 'package:pillbin/screens/page_9.dart';
 import 'package:pillbin/styling/colors/colors.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
 class RootScreen extends StatefulWidget {
-  const RootScreen({super.key});
+   RootScreen({super.key});
 
   @override
   State<RootScreen> createState() => _RootScreenState();
@@ -34,7 +35,7 @@ class _RootScreenState extends State<RootScreen> {
         child: ListView(
           children: [
             SizedBox(
-              height: 25,
+              height: 2.633*SizeConfig.heightMultiplier,
             ),
             for (int i = 0; i < 7; i++)
               Padding(
@@ -43,7 +44,7 @@ class _RootScreenState extends State<RootScreen> {
                   title: Text(
                     Strings.drawer_items[i],
                     style: TextStyle(
-                        fontSize: 21,
+                        fontSize: 2.212*SizeConfig.heightMultiplier,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey.shade800,
                         fontFamily: "Libre_Regular"),
@@ -63,7 +64,7 @@ class _RootScreenState extends State<RootScreen> {
               )
           ],
         ),
-        width: 300,
+        width: 66.964*SizeConfig.widthMultiplier,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         backgroundColor: Colours.Very_Light_Blue,
       ),
@@ -71,19 +72,19 @@ class _RootScreenState extends State<RootScreen> {
       appBar: AppBar(
         leading: Container(),
         backgroundColor: Colours.Very_Light_Blue,
-        toolbarHeight: 70,
+        toolbarHeight: 7.373*SizeConfig.heightMultiplier,
         actions: [
           IconButton(
             icon: Icon(
               Icons.menu,
-              size: 50,
+              size: 5.266*SizeConfig.heightMultiplier,
             ),
             onPressed: () {
               _scaffoldKey.currentState?.openEndDrawer();
             },
           ),
           SizedBox(
-            width: 6,
+            width: 1.339*SizeConfig.widthMultiplier,
           )
         ],
       ),

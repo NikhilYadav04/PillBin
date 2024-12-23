@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
 class Page2 extends StatefulWidget {
@@ -14,6 +15,14 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("height is ${SizeConfig.heightMultiplier}");
+    print("width is ${SizeConfig.widthMultiplier}");
+  }
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -23,7 +32,7 @@ class _Page2State extends State<Page2> {
     return SingleChildScrollView(
       child: Column(children: [
         SizedBox(
-          height: 850,
+          height: 89.536*SizeConfig.heightMultiplier,
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -32,7 +41,7 @@ class _Page2State extends State<Page2> {
                 heightFactor: 0.52,
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15, right: 100),
+                  padding: EdgeInsets.only(left: 1.580*SizeConfig.heightMultiplier, right: 10.534*SizeConfig.heightMultiplier),
                   child: Container(
                     decoration: BoxDecoration(color: Colours.Light_Blue),
                   ),
@@ -41,13 +50,13 @@ class _Page2State extends State<Page2> {
 
               //*Photo
               FractionallySizedBox(
-                heightFactor: 0.52,
-                alignment: Alignment.topLeft,
+                heightFactor: 1.48,
+                alignment: Alignment.bottomLeft,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 55),
+                    padding: EdgeInsets.only(left: 5.793*SizeConfig.heightMultiplier),
                     child: Image.asset(
                       Images.Image_2,
-                      scale: 1.65,
+                      scale: 0.356*SizeConfig.widthMultiplier,
                     )),
               ),
 
@@ -56,7 +65,7 @@ class _Page2State extends State<Page2> {
                 heightFactor: 0.46,
                 alignment: Alignment.bottomLeft,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  padding: EdgeInsets.symmetric(horizontal: 2.678*SizeConfig.widthMultiplier),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -65,10 +74,10 @@ class _Page2State extends State<Page2> {
                         style: TextStyle(
                             fontFamily: "Libre_Bold",
                             fontWeight: FontWeight.bold,
-                            fontSize: 40),
+                            fontSize: 4.213*SizeConfig.heightMultiplier),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 1.580*SizeConfig.heightMultiplier,
                       ),
                       Text(
                         Strings.Drug_1,
@@ -76,7 +85,7 @@ class _Page2State extends State<Page2> {
                             letterSpacing: 1,
                             fontFamily: "Glacial_Regular",
                             fontWeight: FontWeight.w600,
-                            fontSize: 19),
+                            fontSize: 2.001*SizeConfig.heightMultiplier),
                       ),
                     ],
                   ),
@@ -89,18 +98,18 @@ class _Page2State extends State<Page2> {
           height: 0,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 2.678*SizeConfig.widthMultiplier, vertical: 1.053*SizeConfig.heightMultiplier),
           child: Text(
             Strings.Drug_2,
             style: TextStyle(
                 letterSpacing: 1,
                 fontFamily: "Libre_Regular",
                 fontWeight: FontWeight.w400,
-                fontSize: 19),
+                fontSize:2.001*SizeConfig.heightMultiplier),
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 2.106*SizeConfig.heightMultiplier,
         ),
       ]),
     );

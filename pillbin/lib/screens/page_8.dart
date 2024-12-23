@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 
 class Page8 extends StatefulWidget {
-  const Page8({super.key,required this.ontap, required this.pageIndex, required this.pageNotifier});
+   Page8({super.key,required this.ontap, required this.pageIndex, required this.pageNotifier});
     final void Function() ontap;
   final int pageIndex;
   final ValueNotifier<int> pageNotifier;
@@ -19,10 +20,7 @@ class _Page8State extends State<Page8> {
       child: Column(
         children: [
           SizedBox(
-            height: 30,
-          ),
-          SizedBox(
-            height: 460,
+            height: 48.455*SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -31,7 +29,7 @@ class _Page8State extends State<Page8> {
                   heightFactor: 0.82,
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 15, right: 100),
+                    padding: EdgeInsets.only(left: 1.580*SizeConfig.heightMultiplier, right: 10.533*SizeConfig.heightMultiplier),
                     child: Container(
                       decoration: BoxDecoration(color: Colours.Light_Blue),
                     ),
@@ -43,11 +41,11 @@ class _Page8State extends State<Page8> {
                   heightFactor: 0.81,
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 115),
+                      padding: EdgeInsets.only(left: 9*SizeConfig.heightMultiplier),
                       child: ClipRRect(
                         child: Image.asset(
                           Images.Image_6,
-                          scale: 1.3,
+                          scale: 0.14*SizeConfig.heightMultiplier,
                         ),
                       )),
                 ),
@@ -57,7 +55,7 @@ class _Page8State extends State<Page8> {
                   heightFactor: 0.13,
                   alignment: Alignment.bottomLeft,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 14),
+                    padding: EdgeInsets.symmetric(horizontal: 3.125*SizeConfig.widthMultiplier),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -66,7 +64,7 @@ class _Page8State extends State<Page8> {
                           style: TextStyle(
                               fontFamily: "Libre_Bold",
                               fontWeight: FontWeight.bold,
-                              fontSize: 36),
+                              fontSize:3.792*SizeConfig.heightMultiplier),
                         ),
                       ],
                     ),
@@ -75,9 +73,9 @@ class _Page8State extends State<Page8> {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -85,13 +83,13 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 25,),
+          SizedBox(height: 2.633*SizeConfig.heightMultiplier,),
            Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -99,13 +97,13 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
             Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -113,13 +111,13 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
             Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -127,13 +125,13 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
             Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -141,13 +139,13 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
             Padding(
-            padding: EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 2.901*SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -155,11 +153,11 @@ class _Page8State extends State<Page8> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
-                      fontSize: 19.5,
+                      fontSize: 2.054*SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: 3.160*SizeConfig.heightMultiplier,),
         ],
       ),
     );

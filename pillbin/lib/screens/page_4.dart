@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/images/images.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
 class Page4 extends StatefulWidget {
-  const Page4({super.key,required this.ontap, required this.pageIndex, required this.pageNotifier});
-    final void Function() ontap;
+  Page4(
+      {super.key,
+      required this.ontap,
+      required this.pageIndex,
+      required this.pageNotifier});
+  final void Function() ontap;
   final int pageIndex;
   final ValueNotifier<int> pageNotifier;
 
@@ -19,10 +24,10 @@ class _Page4State extends State<Page4> {
       child: Column(
         children: [
           SizedBox(
-            height: 30,
+            height: 3.160 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 810,
+            height: 27.323 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -30,68 +35,78 @@ class _Page4State extends State<Page4> {
                   alignment: Alignment.topLeft,
                   heightFactor: 0.4,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 12),
+                    padding: EdgeInsets.only(
+                        left: 2.678 * SizeConfig.widthMultiplier),
                     child: Text(
-                      "Impact of Pharmaceutical",
+                      "Impact of\nPharmaceutical",
+
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: "Hanken_Bold",
-                          fontSize: 35),
+                          fontSize: 3.686 * SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
                 FractionallySizedBox(
                   alignment: Alignment.bottomLeft,
-                  heightFactor: 0.944,
+                  heightFactor: 0.615,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 2.678 * SizeConfig.widthMultiplier),
                     child: Text(
                       "Contaminants on Biodiversity and",
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: "Hanken_Bold",
-                          fontSize: 35),
+                          fontSize: 3.686 * SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
                 FractionallySizedBox(
                   alignment: Alignment.bottomLeft,
-                  heightFactor: 0.825,
+                  heightFactor: 0.22,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 2.678 * SizeConfig.widthMultiplier),
                     child: Text(
                       "Ecosystems",
                       style: TextStyle(
                           color: Colors.black,
                           fontFamily: "Hanken_Bold",
-                          fontSize: 35),
-                    ),
-                  ),
-                ),
-                FractionallySizedBox(
-                  alignment: Alignment.bottomLeft,
-                  heightFactor: 0.73,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 12, right: 5),
-                    child: Text(
-                      Strings.Imapct_1,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: "Libre_Regular",
-                          fontSize: 20),
+                          fontSize: 3.686 * SizeConfig.heightMultiplier),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          AspectRatio(
-                aspectRatio: 1.6,
+          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
+          Padding(
+            padding: EdgeInsets.only(
+                left: 1.264 * SizeConfig.heightMultiplier,
+                right: 0.526 * SizeConfig.heightMultiplier),
+            child: Text(
+              Strings.Imapct_1,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: "Libre_Regular",
+                  fontSize: 2.1067 * SizeConfig.heightMultiplier),
+            ),
+          ),
+          SizedBox(
+            height: 2.633*SizeConfig.heightMultiplier,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: 2.678 * SizeConfig.widthMultiplier),
+            child: AspectRatio(
+                aspectRatio: 0.168 * SizeConfig.heightMultiplier,
                 child: Image.asset(
                   Images.Image_4,
                 )),
+          ),
           SizedBox(
-            height: 30,
+            height: 3.160 * SizeConfig.heightMultiplier,
           ),
         ],
       ),

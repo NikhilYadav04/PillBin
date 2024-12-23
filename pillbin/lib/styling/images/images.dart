@@ -10,6 +10,7 @@ class Images{
   static const Image_6 = "assets/Image_6.png";
   static const Image_7 = "assets/Image_7.png";
   static const Image_8 = "assets/Image_8.png";
+  static const Poster = "assets/poster.png";
 
   static const Logo = "assets/Logo.png";
 }

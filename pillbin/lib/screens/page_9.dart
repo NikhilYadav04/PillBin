@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
+import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Page9 extends StatefulWidget {
-  const Page9(
+  Page9(
       {super.key,
       required this.ontap,
       required this.pageIndex,
@@ -32,56 +33,30 @@ class _Page9State extends State<Page9> {
         color: Colours.Light_Blue,
         child: Column(
           children: [
-            SizedBox(
-              height: 300,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  //* Image
-                  FractionallySizedBox(
-                      alignment: Alignment.bottomLeft,
-                      heightFactor: 1.28,
-                      child: Image.asset(Images.Image_8)),
-
-                  //* Logo
-                  FractionallySizedBox(
-                    alignment: Alignment.bottomLeft,
-                    heightFactor: 1.28,
-                    child: Padding(
-                        padding: EdgeInsets.only(right: 270),
-                        child: Image.asset(
-                          Images.Logo,
-                          scale: 3,
-                        )),
+            Image.asset(Images.Poster),
+            SizedBox(height: 1.580*SizeConfig.heightMultiplier,),
+            Padding(
+                padding: EdgeInsets.only(),
+                child: Center(
+                  child: Text(
+                    "For more information",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "Hanken_Bold",
+                        fontSize: 4.213 * SizeConfig.heightMultiplier,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline),
                   ),
-
-                  //* Text
-                  FractionallySizedBox(
-                    alignment: Alignment.bottomCenter,
-                    heightFactor: 0.22,
-                    child: Padding(
-                        padding: EdgeInsets.only(left: 30),
-                        child: Text(
-                          "For more information",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Hanken_Bold",
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline),
-                        )),
-                  ),
-                ],
-              ),
-            ),
+                )),
             SizedBox(
-              height: 30,
+              height: 3.160 * SizeConfig.heightMultiplier,
             ),
             Container(
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.only(
+                        left: 1.580 * SizeConfig.heightMultiplier),
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Text(
@@ -89,17 +64,18 @@ class _Page9State extends State<Page9> {
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: "Hanken_Bold",
-                          fontSize: 35,
+                          fontSize: 3.686 * SizeConfig.heightMultiplier,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 2.106 * SizeConfig.heightMultiplier,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.only(
+                        left: 1.580 * SizeConfig.heightMultiplier),
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Column(
@@ -115,12 +91,12 @@ class _Page9State extends State<Page9> {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Libre_Regular",
-                                  fontSize: 20,
+                                  fontSize: 2.106 * SizeConfig.heightMultiplier,
                                   decoration: TextDecoration.underline),
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 1.053 * SizeConfig.heightMultiplier,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -132,12 +108,12 @@ class _Page9State extends State<Page9> {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Libre_Regular",
-                                  fontSize: 20,
+                                  fontSize: 2.106 * SizeConfig.heightMultiplier,
                                   decoration: TextDecoration.underline),
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 1.053 * SizeConfig.heightMultiplier,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -149,12 +125,12 @@ class _Page9State extends State<Page9> {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Libre_Regular",
-                                  fontSize: 20,
+                                  fontSize: 2.106 * SizeConfig.heightMultiplier,
                                   decoration: TextDecoration.underline),
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 1.053 * SizeConfig.heightMultiplier,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -166,19 +142,19 @@ class _Page9State extends State<Page9> {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Libre_Regular",
-                                  fontSize: 20,
+                                  fontSize: 2.106 * SizeConfig.heightMultiplier,
                                   decoration: TextDecoration.underline),
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 1.053 * SizeConfig.heightMultiplier,
                           ),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 340,
+                    height: 35.814 * SizeConfig.heightMultiplier,
                   ),
                 ],
               ),
