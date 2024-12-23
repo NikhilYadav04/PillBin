@@ -4,8 +4,12 @@ import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
 class Page5 extends StatefulWidget {
-  const Page5({super.key,required this.ontap, required this.pageIndex, required this.pageNotifier});
-    final void Function() ontap;
+  const Page5(
+      {super.key,
+      required this.ontap,
+      required this.pageIndex,
+      required this.pageNotifier});
+  final void Function() ontap;
   final int pageIndex;
   final ValueNotifier<int> pageNotifier;
 
@@ -13,87 +17,147 @@ class Page5 extends StatefulWidget {
   State<Page5> createState() => _Page5State();
 }
 
-class _Page5State extends State<Page5> {
+class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _positionAnimation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _positionAnimation = Tween<double>(begin: -50, end: 0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
           SizedBox(
-            height: 1.053*SizeConfig.heightMultiplier,
+            height: 1.053 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 16.85*SizeConfig.heightMultiplier,
+            height: 16.85 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
-                FractionallySizedBox(
-                  alignment: Alignment.topCenter,
-                  heightFactor: 0.4,
-                  child: Padding(
-                    padding: EdgeInsets.only(),
-                    child: Center(
-                      child: Text(
-                        "Reasons for Strict",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "Hanken_Bold",
-                            fontSize: 4.424*SizeConfig.heightMultiplier),
-                      ),
-                    ),
-                  ),
-                ),
-                FractionallySizedBox(
-                  alignment: Alignment.bottomLeft,
-                  heightFactor: 1,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(),
-                    child: Center(
-                        child: Text(
-                          "rules on Medicinal",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Hanken_Bold",
-                              fontSize: 4.424*SizeConfig.heightMultiplier),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.topCenter,
+                          heightFactor: 0.4,
+                          child: Padding(
+                            padding: EdgeInsets.only(),
+                            child: Center(
+                              child: Text(
+                                "Reasons for Strict",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.424 * SizeConfig.heightMultiplier),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                  ),
+                    );
+                  },
                 ),
-                FractionallySizedBox(
-                  alignment: Alignment.bottomLeft,
-                  heightFactor: 0.38,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(),
-                    child: Center(
-                      child: Text(
-                        "Disposal",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "Hanken_Bold",
-                            fontSize: 4.424*SizeConfig.heightMultiplier),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 1,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(),
+                            child: Center(
+                              child: Text(
+                                "rules on Medicinal",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.424 * SizeConfig.heightMultiplier),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
+                ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 0.38,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(),
+                            child: Center(
+                              child: Text(
+                                "Disposal",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.424 * SizeConfig.heightMultiplier),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: 3.160*SizeConfig.heightMultiplier,
+            height: 3.160 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 35.814*SizeConfig.heightMultiplier,
+            height: 35.814 * SizeConfig.heightMultiplier,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2.678*SizeConfig.widthMultiplier),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 2.678 * SizeConfig.widthMultiplier),
               child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: 1,
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
                         Card(Strings.rules_strict[0], Strings.rules_desc[0]),
                         SizedBox(
-                          width: 2.678*SizeConfig.widthMultiplier,
+                          width: 2.678 * SizeConfig.widthMultiplier,
                         ),
                         Card(Strings.rules_strict[1], Strings.rules_desc[1])
                       ],
@@ -102,18 +166,19 @@ class _Page5State extends State<Page5> {
             ),
           ),
           SizedBox(
-            height: 35.814*SizeConfig.heightMultiplier,
+            height: 35.814 * SizeConfig.heightMultiplier,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2.678*SizeConfig.widthMultiplier),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 2.678 * SizeConfig.widthMultiplier),
               child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: 1,
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
                         Card(Strings.rules_strict[2], Strings.rules_desc[2]),
                         SizedBox(
-                          width: 2.678*SizeConfig.widthMultiplier,
+                          width: 2.678 * SizeConfig.widthMultiplier,
                         ),
                         Card(Strings.rules_strict[3], Strings.rules_desc[3])
                       ],
@@ -121,7 +186,9 @@ class _Page5State extends State<Page5> {
                   }),
             ),
           ),
-          SizedBox(height: 1.053*SizeConfig.heightMultiplier,)
+          SizedBox(
+            height: 1.053 * SizeConfig.heightMultiplier,
+          )
         ],
       ),
     );
@@ -132,11 +199,15 @@ Widget Card(String title, String desc) {
   return Column(
     children: [
       Container(
-        padding: EdgeInsets.symmetric(horizontal: 1.785*SizeConfig.widthMultiplier, vertical: 1.6*SizeConfig.heightMultiplier),
-        height: 34.00*SizeConfig.heightMultiplier,
-        width: 45.758*SizeConfig.widthMultiplier,
+        padding: EdgeInsets.symmetric(
+            horizontal: 1.785 * SizeConfig.widthMultiplier,
+            vertical: 1.6 * SizeConfig.heightMultiplier),
+        height: 34.00 * SizeConfig.heightMultiplier,
+        width: 45.758 * SizeConfig.widthMultiplier,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(1.474*SizeConfig.heightMultiplier), color: Colours.Light_Blue),
+            borderRadius:
+                BorderRadius.circular(1.474 * SizeConfig.heightMultiplier),
+            color: Colours.Light_Blue),
         child: Column(
           children: [
             Text(
@@ -144,11 +215,11 @@ Widget Card(String title, String desc) {
               style: TextStyle(
                   color: Colors.black,
                   fontFamily: "Hanken_Bold",
-                  fontSize: 2.001*SizeConfig.heightMultiplier,
+                  fontSize: 2.001 * SizeConfig.heightMultiplier,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 1.264*SizeConfig.heightMultiplier,
+              height: 1.264 * SizeConfig.heightMultiplier,
             ),
             Text(
               maxLines: 10,
@@ -157,14 +228,14 @@ Widget Card(String title, String desc) {
               style: TextStyle(
                   color: Colors.grey.shade900,
                   fontFamily: "Libre_Regular",
-                  fontSize: 1.422*SizeConfig.heightMultiplier,
+                  fontSize: 1.422 * SizeConfig.heightMultiplier,
                   fontWeight: FontWeight.bold),
             )
           ],
         ),
       ),
       SizedBox(
-        height: 1.580*SizeConfig.heightMultiplier,
+        height: 1.580 * SizeConfig.heightMultiplier,
       )
     ],
   );

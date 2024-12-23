@@ -18,7 +18,30 @@ class Page9 extends StatefulWidget {
   State<Page9> createState() => _Page9State();
 }
 
-class _Page9State extends State<Page9> {
+class _Page9State extends State<Page9> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _positionAnimation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _positionAnimation = Tween<double>(begin: -50, end: 0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+  }
+
   Future<void> _launchUrl(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -34,20 +57,33 @@ class _Page9State extends State<Page9> {
         child: Column(
           children: [
             Image.asset(Images.Poster),
-            SizedBox(height: 1.580*SizeConfig.heightMultiplier,),
-            Padding(
-                padding: EdgeInsets.only(),
-                child: Center(
-                  child: Text(
-                    "For more information",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: "Hanken_Bold",
-                        fontSize: 4.213 * SizeConfig.heightMultiplier,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline),
+            SizedBox(
+              height: 1.580 * SizeConfig.heightMultiplier,
+            ),
+            AnimatedBuilder(
+              animation: _controller,
+              builder: (context, child) {
+                return Transform.translate(
+                  offset: Offset(0, _positionAnimation.value),
+                  child: Opacity(
+                    opacity: _opacityAnimation.value,
+                    child: Padding(
+                        padding: EdgeInsets.only(),
+                        child: Center(
+                          child: Text(
+                            "For more information",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Hanken_Bold",
+                                fontSize: 4.213 * SizeConfig.heightMultiplier,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline),
+                          ),
+                        )),
                   ),
-                )),
+                );
+              },
+            ),
             SizedBox(
               height: 3.160 * SizeConfig.heightMultiplier,
             ),

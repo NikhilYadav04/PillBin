@@ -17,7 +17,32 @@ class Page4 extends StatefulWidget {
   State<Page4> createState() => _Page4State();
 }
 
-class _Page4State extends State<Page4> {
+class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _positionAnimation;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _positionAnimation = Tween<double>(begin: -50, end: 0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -31,56 +56,93 @@ class _Page4State extends State<Page4> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                FractionallySizedBox(
-                  alignment: Alignment.topLeft,
-                  heightFactor: 0.4,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        left: 2.678 * SizeConfig.widthMultiplier),
-                    child: Text(
-                      "Impact of\nPharmaceutical",
-
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: "Hanken_Bold",
-                          fontSize: 3.686 * SizeConfig.heightMultiplier),
-                    ),
-                  ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.topLeft,
+                          heightFactor: 0.4,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: 2.678 * SizeConfig.widthMultiplier),
+                            child: Text(
+                              "Impact of\nPharmaceutical",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize:
+                                      3.686 * SizeConfig.heightMultiplier),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                FractionallySizedBox(
-                  alignment: Alignment.bottomLeft,
-                  heightFactor: 0.615,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 2.678 * SizeConfig.widthMultiplier),
-                    child: Text(
-                      "Contaminants on Biodiversity and",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: "Hanken_Bold",
-                          fontSize: 3.686 * SizeConfig.heightMultiplier),
-                    ),
-                  ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 0.615,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 2.678 * SizeConfig.widthMultiplier),
+                            child: Text(
+                              "Contaminants on Biodiversity and",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize:
+                                      3.686 * SizeConfig.heightMultiplier),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                FractionallySizedBox(
-                  alignment: Alignment.bottomLeft,
-                  heightFactor: 0.22,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 2.678 * SizeConfig.widthMultiplier),
-                    child: Text(
-                      "Ecosystems",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: "Hanken_Bold",
-                          fontSize: 3.686 * SizeConfig.heightMultiplier),
-                    ),
-                  ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 0.22,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 2.678 * SizeConfig.widthMultiplier),
+                            child: Text(
+                              "Ecosystems",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize:
+                                      3.686 * SizeConfig.heightMultiplier),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
           ),
-          SizedBox(height: 1.053*SizeConfig.heightMultiplier,),
+          SizedBox(
+            height: 1.053 * SizeConfig.heightMultiplier,
+          ),
           Padding(
             padding: EdgeInsets.only(
                 left: 1.264 * SizeConfig.heightMultiplier,
@@ -94,7 +156,7 @@ class _Page4State extends State<Page4> {
             ),
           ),
           SizedBox(
-            height: 2.633*SizeConfig.heightMultiplier,
+            height: 2.633 * SizeConfig.heightMultiplier,
           ),
           Padding(
             padding: EdgeInsets.symmetric(

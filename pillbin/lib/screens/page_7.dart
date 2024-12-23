@@ -17,7 +17,30 @@ class Page7 extends StatefulWidget {
   State<Page7> createState() => _Page7State();
 }
 
-class _Page7State extends State<Page7> {
+class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _positionAnimation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _positionAnimation = Tween<double>(begin: -50, end: 0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -61,7 +84,14 @@ class _Page7State extends State<Page7> {
                 ),
 
                 //*Text
-                FractionallySizedBox(
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
                   heightFactor: 0.26,
                   alignment: Alignment.bottomLeft,
                   child: Padding(
@@ -84,6 +114,10 @@ class _Page7State extends State<Page7> {
                     ),
                   ),
                 )
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -197,7 +231,7 @@ class _Page7State extends State<Page7> {
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
-                      fontSize: 1.685*SizeConfig.heightMultiplier,
+                      fontSize: 1.685 * SizeConfig.heightMultiplier,
                       color: Color.fromARGB(255, 78, 76, 76)),
                 )),
           ),
