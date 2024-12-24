@@ -4,7 +4,6 @@ import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
- //runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
  runApp(MyApp());
 }
 
