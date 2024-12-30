@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
-class Page4 extends StatefulWidget {
-  Page4(
+class Page3A extends StatefulWidget {
+  Page3A(
       {super.key,
       required this.ontap,
       required this.pageIndex,
@@ -14,10 +15,10 @@ class Page4 extends StatefulWidget {
   final ValueNotifier<int> pageNotifier;
 
   @override
-  State<Page4> createState() => _Page4State();
+  State<Page3A> createState() => _Page3AState();
 }
 
-class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
+class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
@@ -48,11 +49,13 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
+          Container(
+            color: Colours.Light_Blue,
             height: 3.160 * SizeConfig.heightMultiplier,
           ),
-          SizedBox(
-            height: 27.323 * SizeConfig.heightMultiplier,
+          Container(
+            color: Colours.Light_Blue,
+            height: 18.323 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -70,7 +73,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.only(
                                 left: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Impact of\nPharmaceutical",
+                              "Risks associated with",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -92,12 +95,12 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.615,
+                          heightFactor: 0.71,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Contaminants on Biodiversity and",
+                              "Drug Disposal: Antibiotic",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -119,12 +122,12 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.22,
+                          heightFactor: 0.42,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Ecosystems",
+                              "Resistance",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -140,24 +143,29 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(
-            height: 2.2 * SizeConfig.heightMultiplier,
-          ),
-          Padding(
-              padding: EdgeInsets.only(
-                  left: 1.264 * SizeConfig.heightMultiplier,
-                  right: 0.526 * SizeConfig.heightMultiplier),
-              child: Strings.impact),
-          SizedBox(
-            height: 2 * SizeConfig.heightMultiplier,
-          ),
-          Image.asset(
-            Images.Image_4,
-            height: 420,
-            width: 420,
-          ),
-          SizedBox(
-            height: 3.160 * SizeConfig.heightMultiplier,
+          Container(
+            color: Colours.Light_Blue,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 2.678 * SizeConfig.widthMultiplier),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Strings.drug_risks,
+                  SizedBox(
+                    height: 0 * SizeConfig.heightMultiplier,
+                  ),
+                  Image.asset(
+                    Images.Image_3,
+                    width: 420,
+                    height: 420,
+                  ),
+                  SizedBox(
+                    height: 1.8 * SizeConfig.heightMultiplier,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

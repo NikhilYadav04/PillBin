@@ -96,7 +96,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
             child: Align(
               alignment: Alignment.topLeft,
               child: Image.asset(
-                "assets/Logo.png",
+                "assets/icon.png",
                 height: 15.800 * SizeConfig.heightMultiplier,
                 width: 33.482 * SizeConfig.widthMultiplier,
               ),

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:pillbin/screens/page_1.dart';
 import 'package:pillbin/screens/page_2.dart';
 import 'package:pillbin/screens/page_3.dart';
+import 'package:pillbin/screens/page_3_a.dart';
 import 'package:pillbin/screens/page_4.dart';
+import 'package:pillbin/screens/page_4_a.dart';
+import 'package:pillbin/screens/page_4_b.dart';
 import 'package:pillbin/screens/page_5.dart';
 import 'package:pillbin/screens/page_6.dart';
 import 'package:pillbin/screens/page_7.dart';
@@ -15,7 +18,7 @@ import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 
 class RootScreen extends StatefulWidget {
-   RootScreen({super.key});
+  RootScreen({super.key});
 
   @override
   State<RootScreen> createState() => _RootScreenState();
@@ -35,7 +38,7 @@ class _RootScreenState extends State<RootScreen> {
         child: ListView(
           children: [
             SizedBox(
-              height: 2.633*SizeConfig.heightMultiplier,
+              height: 2.633 * SizeConfig.heightMultiplier,
             ),
             for (int i = 0; i < 7; i++)
               Padding(
@@ -44,7 +47,7 @@ class _RootScreenState extends State<RootScreen> {
                   title: Text(
                     Strings.drawer_items[i],
                     style: TextStyle(
-                        fontSize: 2.212*SizeConfig.heightMultiplier,
+                        fontSize: 2.212 * SizeConfig.heightMultiplier,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey.shade800,
                         fontFamily: "Libre_Regular"),
@@ -64,7 +67,7 @@ class _RootScreenState extends State<RootScreen> {
               )
           ],
         ),
-        width: 66.964*SizeConfig.widthMultiplier,
+        width: 66.964 * SizeConfig.widthMultiplier,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         backgroundColor: Colours.Very_Light_Blue,
       ),
@@ -72,19 +75,19 @@ class _RootScreenState extends State<RootScreen> {
       appBar: AppBar(
         leading: Container(),
         backgroundColor: Colours.Very_Light_Blue,
-        toolbarHeight: 7.373*SizeConfig.heightMultiplier,
+        toolbarHeight: 7.373 * SizeConfig.heightMultiplier,
         actions: [
           IconButton(
             icon: Icon(
               Icons.menu,
-              size: 5.266*SizeConfig.heightMultiplier,
+              size: 5.266 * SizeConfig.heightMultiplier,
             ),
             onPressed: () {
               _scaffoldKey.currentState?.openEndDrawer();
             },
           ),
           SizedBox(
-            width: 1.339*SizeConfig.widthMultiplier,
+            width: 1.339 * SizeConfig.widthMultiplier,
           )
         ],
       ),
@@ -109,34 +112,41 @@ class _RootScreenState extends State<RootScreen> {
             pageIndex: 2,
             pageNotifier: pageNotifier,
           ),
-          Page4(
+          Page3A(
             ontap: () {},
             pageIndex: 3,
             pageNotifier: pageNotifier,
           ),
-          Page5(
+          Page4(
             ontap: () {},
             pageIndex: 4,
             pageNotifier: pageNotifier,
           ),
-          Page6(
-            ontap: () {},
-            pageIndex: 5,
-            pageNotifier: pageNotifier,
-          ),
-          Page7(
-            ontap: () {},
-            pageIndex: 6,
-            pageNotifier: pageNotifier,
-          ),
-          Page8(
+          Page4A(ontap: () {}, pageIndex: 5, pageNotifier: pageNotifier),
+          Page4B(ontap: () {}, pageIndex: 6, pageNotifier: pageNotifier),
+          Page5(
             ontap: () {},
             pageIndex: 7,
             pageNotifier: pageNotifier,
           ),
-          Page9(
+          Page6(
             ontap: () {},
             pageIndex: 8,
+            pageNotifier: pageNotifier,
+          ),
+          Page7(
+            ontap: () {},
+            pageIndex: 9,
+            pageNotifier: pageNotifier,
+          ),
+          Page8(
+            ontap: () {},
+            pageIndex: 10,
+            pageNotifier: pageNotifier,
+          ),
+          Page9(
+            ontap: () {},
+            pageIndex: 11,
             pageNotifier: pageNotifier,
           )
         ],
