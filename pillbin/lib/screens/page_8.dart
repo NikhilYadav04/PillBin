@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Page8 extends StatefulWidget {
   Page8(
@@ -21,6 +23,13 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -207,14 +216,32 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
                 horizontal: 2.901 * SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "  5. Scratching out personal information on prescription labels before  throwing the empty containers.",
-                  style: TextStyle(
-                      fontFamily: "Libre_Regular",
-                      fontWeight: FontWeight.w600,
-                      fontSize: 2.054 * SizeConfig.heightMultiplier,
-                      color: Color.fromARGB(255, 78, 76, 76)),
-                )),
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text:
+                          "  5. Scratching out personal information on prescription labels before  throwing the empty containers.",
+                      style: TextStyle(
+                          fontFamily: "Libre_Regular",
+                          color: Color.fromARGB(255, 78, 76, 76),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 2.001 * SizeConfig.heightMultiplier)),
+                  TextSpan(
+                    text: " Know More",
+                    style: TextStyle(
+                        fontFamily: "Libre_Regular",
+                        decoration: TextDecoration.underline,
+                        color: Color.fromARGB(255, 78, 76, 76),
+                        decorationThickness: 2,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 2.001 * SizeConfig.heightMultiplier),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        _launchUrl(
+                            "https://www.fda.gov/drugs/safe-disposal-medicines/disposal-unused-medicines-what-you-should-know");
+                      },
+                  )
+                ]))),
           ),
           SizedBox(
             height: 3.160 * SizeConfig.heightMultiplier,

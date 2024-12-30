@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
-import 'package:pillbin/styling/strings/strings.dart';
+import 'package:pillbin/styling/strings/strings_2.dart';
 
-import '../styling/colors/colors.dart';
-
-class Page4B extends StatefulWidget {
-  Page4B(
+class Page8B extends StatefulWidget {
+  Page8B(
       {super.key,
       required this.ontap,
       required this.pageIndex,
@@ -15,17 +14,16 @@ class Page4B extends StatefulWidget {
   final ValueNotifier<int> pageNotifier;
 
   @override
-  State<Page4B> createState() => _Page4BState();
+  State<Page8B> createState() => _Page8BState();
 }
 
-class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
+class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _controller = AnimationController(
@@ -45,17 +43,21 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+    _controller.dispose(); // Dispose the controller to avoid memory leaks
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            color: Colours.Very_Light_Blue,
-            height: 3.160 * SizeConfig.heightMultiplier,
+          SizedBox(
+            height: 2.5 * SizeConfig.heightMultiplier,
           ),
-          Container(
-            height: 125,
-            color: Colours.Very_Light_Blue,
+          SizedBox(
+            height: 17.323 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -71,11 +73,11 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                           heightFactor: 0.4,
                           child: Center(
                             child: Text(
-                              "Survey on Drug",
+                              "Views of Doctors",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
-                                  fontSize: 4.1 * SizeConfig.heightMultiplier),
+                                  fontSize: 3.2 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -91,15 +93,39 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                       child: Opacity(
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
-                          alignment: Alignment.topLeft,
-                          heightFactor: 1.25,
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 1.05,
                           child: Center(
                             child: Text(
-                              "Disposal Awareness",
+                              "collected during survey on",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
-                                  fontSize: 4.1 * SizeConfig.heightMultiplier),
+                                  fontSize: 3.2 * SizeConfig.heightMultiplier),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 0.5,
+                          child: Center(
+                            child: Text(
+                              "Drug Disposal Awareness",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize: 3.1 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -110,47 +136,51 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(
-                horizontal: 2.678 * SizeConfig.widthMultiplier),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 1 * SizeConfig.heightMultiplier,
-                ),
-                Strings.survey,
-                SizedBox(
-                  height: 3 * SizeConfig.heightMultiplier,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    Strings.survey_2,
-                    style: style.copyWith(color: Colors.black, fontSize: 17),
-                  ),
-                ),
-                SizedBox(
-                  height: 2 * SizeConfig.heightMultiplier,
-                ),
-              ],
-            ),
-          ),
-          Image.asset(
-            "assets/survey.png",
-            height: 415,
-            width: 415,
-          ),
+          SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
+          _review(Strings2.view_doctor_1),
           SizedBox(
-            height: 3 * SizeConfig.heightMultiplier,
+            height: 15,
+          ),
+          _review(Strings2.view_doctor_2),
+          SizedBox(
+            height: 15,
+          ),
+          _review(Strings2.view_doctor_3),
+          SizedBox(
+            height: 55,
           ),
         ],
       ),
     );
   }
+}
+
+Widget _review(String text) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal:40),
+    child: Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Image.asset(
+              Images.Comma,
+              height: 65,
+              width: 65,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(text,
+              style: TextStyle(
+                  color: Colors.grey.shade700,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19,
+                  fontFamily: "Hanken_Medium")),
+        ],
+      ),
+    ),
+  );
 }

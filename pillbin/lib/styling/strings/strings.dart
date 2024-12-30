@@ -8,11 +8,14 @@ class Strings {
 
   static List<String> drawer_items = [
     "Home",
-    "About",
-    "Risk",
-    "Reasons",
+    "About Us",
+    "Drug Disposal",
+    "Risks",
+    "Survey",
+    "Reasons for Policy",
     "Take-back Programs",
-    "Disposal",
+    "Disposal Methods",
+    "Views",
     "Know More"
   ];
 
@@ -128,11 +131,36 @@ class Strings {
 
   static RichText effect = RichText(text: TextSpan(
     children: [
-      TextSpan(text: "• Elevated levels of estrogenic steroids, such as natural estradiol and synthetic ethinyl estradiol, introduced into aquatic environments through sources like wastewater effluents, can disrupt the endocrine systems of fish.\n\n",style: TextStyle(color: Colors.grey.shade700)),
+      TextSpan(text: "• Elevated levels of estrogenic steroids, such as natural estradiol and synthetic ethinyl estradiol, introduced into aquatic environments through sources like wastewater effluents, can disrupt the endocrine systems of fish.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
       TextSpan(text: "• This disruption often leads to the feminization of male fish, characterized by the production of vitellogenin a protein typically synthesized only in females for egg yolk development and the development of intersex conditions, where individuals exhibit both male and female reproductive tissues.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• Such hormonal imbalances can impair reproductive behaviors and reduce fertility, potentially resulting in population declines and broader ecological consequences.\n\n",style: style.copyWith(color: Colors.grey.shade700))
+      TextSpan(text: "• Such hormonal imbalances can impair reproductive behaviors and reduce fertility, potentially resulting in population declines and broader ecological consequences.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "• To mitigate these effects, it is essential to enhance wastewater treatment processes to effectively remove estrogenic compounds, promote proper disposal of pharmaceuticals to prevent environmental contamination, and develop eco-friendly alternatives to current estrogenic substances.\n\n",style: style.copyWith(color: Colors.grey.shade700),),
+      TextSpan(text: "• The presence of ethinylestradiol in the living environment of Hydra vulgaris, Gammarus pulex, Chironarus riparius, Hyalella Azteca, and Lymnaea stagnalis may adversely affect the hatchability rate, body size, molt passing ability, reproductive behavior, and the number of eggs laid. ",style: style.copyWith(color: Colors.grey.shade700),),
+      TextSpan(text: "Know More\n\n",style: style.copyWith(color: Colors.grey.shade700,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      _launchUrl("https://pubmed.ncbi.nlm.nih.gov/12651186/");
+                    },),
     ]
   ));
+
+  static RichText survey = RichText(text: TextSpan(
+    children: [
+      TextSpan(
+        text: "• Survey Design: ",style: style.copyWith(color: Colors.black),
+      ),
+      TextSpan(text:  "Questionnaire-based, mixed-method study targeting individuals of all genders aged 18 and above.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "• Structure: ",style: style.copyWith(color: Colors.black)),
+      TextSpan(text: "Part 1: Collected personal details of participants. Part 2: Focused on practices and perceptions regarding unused medication disposal.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "• Questionnaire Development: ",style: style.copyWith(color: Colors.black)),
+      TextSpan(text: "Framed in English, adapted from published literature, and validated by subject experts. Pilot-tested with 15 respondents to refine the questions (pilot responses excluded from final analysis).\n\n",style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "Content: ",style: style.copyWith(color: Colors.black)),
+      TextSpan(text: "Five sections covering demographics, knowledge, current practices, awareness, accessibility of disposal methods, and suggestions.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "Participation: ",style: style.copyWith(color: Colors.black)),
+      TextSpan(text: "Voluntary, with informed consent obtained.",style: style.copyWith(color: Colors.grey.shade700))
+    ]
+  ));
+
+  static String survey_2 = "From the survey conducted on 382 participants, it was found that 66.1 % participants were unaware of the proper drug disposal methods and guidelines.";
 }
 
 

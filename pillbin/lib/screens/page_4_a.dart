@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:pillbin/styling/strings/strings.dart';
 
 class Page4A extends StatefulWidget {
-  Page4A({super.key, required this.ontap, required this.pageIndex, required this.pageNotifier});
-   final void Function() ontap;
+  Page4A(
+      {super.key,
+      required this.ontap,
+      required this.pageIndex,
+      required this.pageNotifier});
+  final void Function() ontap;
   final int pageIndex;
   final ValueNotifier<int> pageNotifier;
 
@@ -12,7 +17,7 @@ class Page4A extends StatefulWidget {
   State<Page4A> createState() => _Page4AState();
 }
 
-class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin{
+class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
@@ -37,18 +42,19 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin{
 
     _controller.forward();
   }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-         Container(
-            color: Colours.Light_Blue,
+          Container(
+            color: Colours.Very_Light_Blue,
             height: 3.160 * SizeConfig.heightMultiplier,
           ),
           Container(
             height: 70,
-            color: Colours.Light_Blue,
+            color: Colours.Very_Light_Blue,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -62,18 +68,16 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin{
                         child: FractionallySizedBox(
                           alignment: Alignment.topLeft,
                           heightFactor: 0.6,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: 2.678 * SizeConfig.widthMultiplier),
-                            child: Text(
-                              "Effect on Marine Life",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                          child: Center(
+                              child: Text(
+                                "Effect on Marine Life",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                       4.1 * SizeConfig.heightMultiplier),
+                              ),
                             ),
-                          ),
                         ),
                       ),
                     );
@@ -83,11 +87,24 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin{
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 2.678 * SizeConfig.widthMultiplier),
+            color: Colours.Very_Light_Blue,
+            padding: EdgeInsets.symmetric(
+                horizontal: 2.678 * SizeConfig.widthMultiplier),
             child: Column(
-             children: [
-              
-             ],
+              children: [
+                SizedBox(
+                  height: 1.2 * SizeConfig.heightMultiplier,
+                ),
+                Strings.effect,
+                Image.asset(
+                  "assets/fish.png",
+                  height: 390,
+                  width: 390,
+                ),
+                  SizedBox(
+                    height:2.4 * SizeConfig.heightMultiplier,
+                  ),
+              ],
             ),
           )
         ],

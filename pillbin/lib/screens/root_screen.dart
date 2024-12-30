@@ -12,6 +12,8 @@ import 'package:pillbin/screens/page_5.dart';
 import 'package:pillbin/screens/page_6.dart';
 import 'package:pillbin/screens/page_7.dart';
 import 'package:pillbin/screens/page_8.dart';
+import 'package:pillbin/screens/page_8_a.dart';
+import 'package:pillbin/screens/page_8_b.dart';
 import 'package:pillbin/screens/page_9.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
@@ -40,7 +42,7 @@ class _RootScreenState extends State<RootScreen> {
             SizedBox(
               height: 2.633 * SizeConfig.heightMultiplier,
             ),
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 10; i++)
               Padding(
                 padding: EdgeInsets.only(left: 18),
                 child: ListTile(
@@ -144,9 +146,19 @@ class _RootScreenState extends State<RootScreen> {
             pageIndex: 10,
             pageNotifier: pageNotifier,
           ),
+          Page8A(
+            ontap: (){},
+            pageIndex: 11,
+            pageNotifier: pageNotifier,
+          ),
+          Page8B(
+            ontap: (){},
+            pageIndex: 12,
+            pageNotifier: pageNotifier,
+          ),
           Page9(
             ontap: () {},
-            pageIndex: 11,
+            pageIndex: 13,
             pageNotifier: pageNotifier,
           )
         ],

@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Page7 extends StatefulWidget {
   Page7(
@@ -21,6 +23,13 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -77,8 +86,8 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                           left: 13.167 * SizeConfig.heightMultiplier),
                       child: ClipRRect(
                         child: Image.asset(
-                          Images.Image_5,
-                          scale: 0.1211 * SizeConfig.heightMultiplier,
+                          Images.Image_5_1,
+                          scale: 0.19 * SizeConfig.heightMultiplier,
                         ),
                       )),
                 ),
@@ -90,31 +99,32 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                     return Transform.translate(
                       offset: Offset(0, _positionAnimation.value),
                       child: Opacity(
-                        opacity: _opacityAnimation.value,
-                        child: FractionallySizedBox(
-                  heightFactor: 0.26,
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 2.678 * SizeConfig.widthMultiplier),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Drug Disposal\nMethods",
-                          style: TextStyle(
-                              fontFamily: "Libre_Bold",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 4.213 * SizeConfig.heightMultiplier),
-                        ),
-                        SizedBox(
-                          height: 1.580 * SizeConfig.heightMultiplier,
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-                      ),
+                          opacity: _opacityAnimation.value,
+                          child: FractionallySizedBox(
+                            heightFactor: 0.26,
+                            alignment: Alignment.bottomLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      2.678 * SizeConfig.widthMultiplier),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Drug Disposal\nMethods",
+                                    style: TextStyle(
+                                        fontFamily: "Libre_Bold",
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 4.213 *
+                                            SizeConfig.heightMultiplier),
+                                  ),
+                                  SizedBox(
+                                    height: 1.580 * SizeConfig.heightMultiplier,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
                     );
                   },
                 ),
@@ -130,7 +140,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Flush Drugs",
+                  "Flush Drugs as per\nUS FDA",
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -306,16 +316,34 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                 horizontal: 2.901 * SizeConfig.widthMultiplier),
             child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Do not flush medicines unless they are explicitly listed on the FDA's Flush List.",
-                  style: TextStyle(
-                      fontFamily: "Libre_Regular",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 2.001 * SizeConfig.heightMultiplier),
-                )),
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text:
+                          "Do not flush medicines unless they are explicitly listed on the FDA's Flush List.",
+                      style: TextStyle(
+                          fontFamily: "Libre_Regular",
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 2.001 * SizeConfig.heightMultiplier)),
+                  TextSpan(
+                    text: " Know More",
+                    style: TextStyle(
+                        fontFamily: "Libre_Regular",
+                        decoration: TextDecoration.underline,
+                        color: Colors.black,
+                        decorationThickness: 2,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 2.001 * SizeConfig.heightMultiplier),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        _launchUrl("https://www.fda.gov/drugs/disposal-unused-medicines-what-you-should-know/drug-disposal-fdas-flush-list-certain-medicines");
+                      },
+                  )
+                ]))),
           ),
           SizedBox(
-            height: 2.106 * SizeConfig.heightMultiplier,
+            height: 2.4 * SizeConfig.heightMultiplier,
           ),
         ],
       ),

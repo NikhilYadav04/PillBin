@@ -52,7 +52,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
             height: 3.160 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 27.323 * SizeConfig.heightMultiplier,
+            height: 17.323 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -66,18 +66,16 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                         child: FractionallySizedBox(
                           alignment: Alignment.topLeft,
                           heightFactor: 0.4,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: 2.678 * SizeConfig.widthMultiplier),
-                            child: Text(
-                              "Impact of\nPharmaceutical",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                          child: Center(
+                              child: Text(
+                                "Impact of Pharmaceutical",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        3.5 * SizeConfig.heightMultiplier),
+                              ),
                             ),
-                          ),
                         ),
                       ),
                     );
@@ -92,19 +90,17 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.615,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 2.678 * SizeConfig.widthMultiplier),
-                            child: Text(
-                              "Contaminants on Biodiversity and",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                          heightFactor: 1.05,
+                          child:  Center(
+                              child: Text(
+                                "Contaminants on",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        3.3 * SizeConfig.heightMultiplier),
+                              ),
                             ),
-                          ),
                         ),
                       ),
                     );
@@ -119,19 +115,17 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.22,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 2.678 * SizeConfig.widthMultiplier),
-                            child: Text(
-                              "Ecosystems",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                          heightFactor: 0.5,
+                          child: Center(
+                              child: Text(
+                                " Biodiversity and Ecosystems",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        3.23* SizeConfig.heightMultiplier),
+                              ),
                             ),
-                          ),
                         ),
                       ),
                     );
@@ -141,7 +135,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 2.2 * SizeConfig.heightMultiplier,
+            height: 1.1 * SizeConfig.heightMultiplier,
           ),
           Padding(
               padding: EdgeInsets.only(
