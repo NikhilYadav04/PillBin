@@ -46,6 +46,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -118,7 +119,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 1 * SizeConfig.heightMultiplier,
                 ),
-                Strings.survey,
+                strings.survey,
                 SizedBox(
                   height: 3 * SizeConfig.heightMultiplier,
                 ),
@@ -126,12 +127,12 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
                 Center(
                   child: Text(
-                    Strings.survey_2,
+                    strings.survey_2,
                     style: style.copyWith(color: Colors.black, fontSize: 17),
                   ),
                 ),

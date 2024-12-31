@@ -43,6 +43,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -50,7 +51,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
             height: 1.053 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 16.85 * SizeConfig.heightMultiplier,
+            height: 24.85 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -68,12 +69,12 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.only(),
                             child: Center(
                               child: Text(
-                                "Reasons for Strict",
+                                strings.page_5_title_1,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        4.424 * SizeConfig.heightMultiplier),
+                                        4.1 * SizeConfig.heightMultiplier),
                               ),
                             ),
                           ),
@@ -91,17 +92,17 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 1,
+                          heightFactor: 1.150,
                           child: Padding(
                             padding: EdgeInsets.symmetric(),
                             child: Center(
                               child: Text(
-                                "rules on Medicinal",
+                                strings.page_5_title_2,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        4.424 * SizeConfig.heightMultiplier),
+                                        4.1 * SizeConfig.heightMultiplier),
                               ),
                             ),
                           ),
@@ -119,17 +120,45 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.38,
+                          heightFactor: 0.72,
                           child: Padding(
                             padding: EdgeInsets.symmetric(),
                             child: Center(
                               child: Text(
-                                "Disposal",
+                                strings.page_5_title_3,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        4.424 * SizeConfig.heightMultiplier),
+                                        4.1 * SizeConfig.heightMultiplier),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _positionAnimation.value),
+                      child: Opacity(
+                        opacity: _opacityAnimation.value,
+                        child: FractionallySizedBox(
+                          alignment: Alignment.bottomLeft,
+                          heightFactor: 0.28,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(),
+                            child: Center(
+                              child: Text(
+                               strings.page_5_title_4,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.1 * SizeConfig.heightMultiplier),
                               ),
                             ),
                           ),
@@ -155,11 +184,11 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
-                        Card(Strings.rules_strict[0], Strings.rules_desc[0]),
+                        Card(strings.rules_strict[0], strings.rules_desc[0]),
                         SizedBox(
                           width: 2.678 * SizeConfig.widthMultiplier,
                         ),
-                        Card(Strings.rules_strict[1], Strings.rules_desc[1])
+                        Card(strings.rules_strict[1], strings.rules_desc[1])
                       ],
                     );
                   }),
@@ -176,11 +205,11 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
-                        Card(Strings.rules_strict[2], Strings.rules_desc[2]),
+                        Card(strings.rules_strict[2], strings.rules_desc[2]),
                         SizedBox(
                           width: 2.678 * SizeConfig.widthMultiplier,
                         ),
-                        Card(Strings.rules_strict[3], Strings.rules_desc[3])
+                        Card(strings.rules_strict[3], strings.rules_desc[3])
                       ],
                     );
                   }),

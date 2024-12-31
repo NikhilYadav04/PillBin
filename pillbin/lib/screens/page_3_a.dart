@@ -3,6 +3,7 @@ import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page3A extends StatefulWidget {
   Page3A(
@@ -46,6 +47,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -73,7 +75,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.only(
                                 left: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Risks associated with",
+                              AppLocalizations.of(context)!.page_3a_title_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -100,7 +102,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Drug Disposal: Antibiotic",
+                               AppLocalizations.of(context)!.page_3a_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -127,7 +129,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Resistance",
+                               AppLocalizations.of(context)!.page_3a_title_3,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -151,7 +153,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Strings.drug_risks,
+                 strings.drug_risks,
                   SizedBox(
                     height: 0 * SizeConfig.heightMultiplier,
                   ),

@@ -2,9 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Strings {
-  Strings._();
+  final BuildContext context;
+  Strings(this.context);
 
   static List<String> drawer_items = [
     "Home",
@@ -19,151 +21,311 @@ class Strings {
     "Know More"
   ];
 
-  static List<String> rules_strict = [
-    "1. Over-purchasing and Early Discontinuation",
-    "2. Improper Disposal Practices",
-    "3. Community Drug Donation",
-    "4. Eco-friendly Disposal Awareness"
-  ];
+  String get page_5_title_1 {
+    return AppLocalizations.of(context)!.page_5_title_1;
+  }
 
-  static List<String> rules_desc = [
-    "Many Indians buy excess medicines or stop treatment prematurely, leading to surplus medicines that increase misuse and health risks. Strict rules can promote responsible use and adherence to prescriptions.",
-    "Flushing unused medicines is common, causing environmental harm. Clear guidelines are needed to regulate which medicines can be flushed and encourage eco-friendly disposal methods for others.",
-    "Establishing systems for collecting and redistributing unused medicines can reduce waste and provide essential medications to those in need.",
-    "Public education on safe disposal methods and accessible return systems can prevent environmental damage and encourage responsible handling of pharmaceutical waste."
-  ];
+  String get page_5_title_2 {
+    return AppLocalizations.of(context)!.page_5_title_2;
+  }
 
-  static List<String> drug_title = [
-    "1. Periodic Drug Take-Back Events",
-    "2. Drug Take-Back Locations",
-    "3. Prepaid Drug Mail-Back Envelopes"
-  ];
+  String get page_5_title_3 {
+    return AppLocalizations.of(context)!.page_5_title_3;
+  }
 
-  static List<String> drug_desc = [
-    "There should be temporary setting up of collection sites for safe disposal of medications. Local law enforcement and waste management authorities  should organize similar events.",
-    "Authorized facilities, such as pharmacies, clinics, and law enforcement agencies, should provide year-round disposal options, including kiosks, drop-off boxes, and mail-back programs. To locate a nearby facility, use Google Maps (\"drug disposal near me\").",
-    "they  should be available for purchase at pharmacies or online, these envelopes provide a convenient way to dispose of medications."
-  ];
+  String get page_5_title_4 {
+    return AppLocalizations.of(context)!.page_5_title_4;
+  }
 
-  static RichText drug = RichText(
-    text: TextSpan(children: [
-      TextSpan(
-        text: "• Drug disposal refers to the process of safely discarding unused, expired, or unwanted pharmaceutical products to prevent harm to the environment, humans, and animals.\n\n",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-        text: "• Proper drug disposal ensures that pharmaceuticals are not misused, abused, or introduced into ecosystems through improper channels like flushing down drains or throwing in regular trash.\n\n",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-        text: "• Daily Use of Medicines: Contain active pharmaceutical ingredients that can harm the environment.\n\n",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-      text:  "• Leakage Points : ",style: style.copyWith(color: Colors.black)
-      ),
-      TextSpan(
-        text: "Manufacturing, distribution, use, and improper disposal. In Asian and African it is found that the most common method of disposing of unused medication was throwing in the garbage, which ended up in landfills.\n\n",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-        text: "• In Maine, US state the pain reliever acetaminophen, for example, was present in samples from one landfill at concentrations of",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-      text:  " 117,000 ng/L, ",style: style.copyWith(color: Colors.black)
-      ),
-       TextSpan(
-        text: "the highest level of any drug measured in the study\n\n",style: style.copyWith(color: Colors.grey.shade700)
-      ),
-      TextSpan(
-      text: "• Sewage Treatment Limitations : ",style: style.copyWith(color: Colors.black)
-      ),
-      TextSpan(
-        text: " Conventional methods target general properties and can't fully remove pharmaceutical compounds.",style: style.copyWith(color: Colors.grey.shade700)
-      )
-    ]),
-  );
+  List<String> get rules_strict {
+    return [
+      AppLocalizations.of(context)!.page_5_rules_strict_1,
+      AppLocalizations.of(context)!.page_5_rules_strict_2,
+      AppLocalizations.of(context)!.page_5_rules_strict_3,
+      AppLocalizations.of(context)!.page_5_rules_strict_4,
+    ];
+  }
 
-  static RichText drug_risks = RichText(
-    text: TextSpan(
-      children: [
-        TextSpan(text: "• The release of antibiotics into the environment, mainly through wastewater and improper disposal, drives the emergence of antimicrobial resistance.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-        TextSpan(text: "• Unused and expired antibiotics are often discarded in garbage, landfills, or sewers due to the cost of proper disposal. A recent study found that ",style: style.copyWith(color: Colors.grey.shade700)),
-        TextSpan(text: "more than a quarter of some 258 rivers ",style: style.copyWith(color: Colors.black)),
-        TextSpan(text: "around the world were polluted with drugs to a toxic degree. The highest concentrations of active pharmaceutical ingredients were found in Sub-Saharan Africa, South Asia, and South America.",style: style.copyWith(color: Colors.grey.shade700)),
-        TextSpan(text: " Know More\n\n",style: style.copyWith(color: Colors.black,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://www.pnas.org/doi/10.1073/pnas.2113947119");
-                    }
-                      ),
-        TextSpan(text: "• Even in small concentrations, these antibiotics promote resistance through horizontal gene transfer or genetic modification. This indiscriminate release transforms harmless microbes into resistant pathogens, compromising antibiotic effectiveness. Third-generation cephalosporin-resistant E. coli , methicillin-resistant Staphylococcus aureus, multi drug resistant Candida auris, Klebsiella pneumoniae are the examples of antibiotic resistant organisms.",
-        style: style.copyWith(color: Colors.grey.shade700)),
-          TextSpan(text: " Know More\n\n",style: style.copyWith(color: Colors.black,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance");
-                    },),
-          TextSpan(text: "When transmitted to humans, resistant bacteria lead to higher morbidity, mortality, and economic strain on healthcare systems. It was associated with an estimated ",style: style.copyWith(color: Colors.grey.shade700)),
-          TextSpan(text: "five million deaths in 2019. ",style: style.copyWith(color: Colors.black)),
-          TextSpan(text: " Know More\n\n",style: style.copyWith(color: Colors.black,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://www.unep.org/resources/superbugs/environmental-action?gad_source=1&gclid=CjwKCAiAxreqBhAxEiwAfGfndDM_RbrPl9C9og4VhP0OgfRrDt9xpRaC-0VpiXPgpfkgi1zLxayKwRoCoEUQAvD_BwE");
-                    },),
-      ]
-    ),
-  );
+  List<String> get rules_desc {
+    return [
+      AppLocalizations.of(context)!.page_5_rules_desc_1,
+      AppLocalizations.of(context)!.page_5_rules_desc_2,
+      AppLocalizations.of(context)!.page_5_rules_desc_3,
+      AppLocalizations.of(context)!.page_5_rules_desc_4,
+    ];
+  }
 
-  static RichText impact = RichText(text: TextSpan(
-    children:
-    [
-       TextSpan(text:   "• The rising presence of antibiotics for human and veterinary use in the environment and food chain has been linked to the obesity epidemic. The veterinary use of diclofenac, an NSAID, has critically endangered three Asian vulture species in the Indian subcontinent.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-       TextSpan(text:  "• Vultures feeding on livestock treated with diclofenac suffer organ failure (visceral gout) and die, disrupting ecosystems. Pharmaceutical contaminants also impact terrestrial and aquatic species, with psychiatric drugs like benzodiazepines causing behavioral changes in fish and their prey. ",style: style.copyWith(color: Colors.grey.shade700)),
-        TextSpan(text: " Know More\n\n",style: style.copyWith(color: Colors.grey.shade700,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://www.researchgate.net/publication/228008880_Diclofenac_Poisoning_as_a_Cause_of_Vulture_Population_Declines_across_the_Indian_Subcontinent");
-                    },),
-       TextSpan(text: "• The population of the White-rumped vulture Gyps bengalensis fell ",style: style.copyWith(color: Colors.grey.shade700)),
-       TextSpan(text:  "96% between 1993 and 2002.\n\n",style: style.copyWith(color: Colors.black)),
-       TextSpan(text:  "• The populations of the Indian vulture Gyps indicus and the slender-billed vulture Gyps tenuirostris fell ",style: style.copyWith(color: Colors.grey.shade700)),
-       TextSpan(text: "97%. ",style: style.copyWith(color: Colors.black)),
-      TextSpan(text: "Know More\n\n",style: style.copyWith(color: Colors.grey.shade700,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://www.sciencehistory.org/stories/magazine/poison-pill-the-mysterious-die-off-of-indias-vultures/");
-                    },),
-      TextSpan(text: "• These effects highlight the urgent need to regulate veterinary pharmaceuticals to protect biodiversity and prevent ecological harm.",style: style.copyWith(color: Colors.grey.shade700))
-    ]
-  ));
+  String get page_6_title_1 {
+    return AppLocalizations.of(context)!.page_6_title_1;
+  }
 
-  static RichText effect = RichText(text: TextSpan(
-    children: [
-      TextSpan(text: "• Elevated levels of estrogenic steroids, such as natural estradiol and synthetic ethinyl estradiol, introduced into aquatic environments through sources like wastewater effluents, can disrupt the endocrine systems of fish.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• This disruption often leads to the feminization of male fish, characterized by the production of vitellogenin a protein typically synthesized only in females for egg yolk development and the development of intersex conditions, where individuals exhibit both male and female reproductive tissues.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• Such hormonal imbalances can impair reproductive behaviors and reduce fertility, potentially resulting in population declines and broader ecological consequences.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• To mitigate these effects, it is essential to enhance wastewater treatment processes to effectively remove estrogenic compounds, promote proper disposal of pharmaceuticals to prevent environmental contamination, and develop eco-friendly alternatives to current estrogenic substances.\n\n",style: style.copyWith(color: Colors.grey.shade700),),
-      TextSpan(text: "• The presence of ethinylestradiol in the living environment of Hydra vulgaris, Gammarus pulex, Chironarus riparius, Hyalella Azteca, and Lymnaea stagnalis may adversely affect the hatchability rate, body size, molt passing ability, reproductive behavior, and the number of eggs laid. ",style: style.copyWith(color: Colors.grey.shade700),),
-      TextSpan(text: "Know More\n\n",style: style.copyWith(color: Colors.grey.shade700,decoration: TextDecoration.underline,decorationThickness: 2),recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchUrl("https://pubmed.ncbi.nlm.nih.gov/12651186/");
-                    },),
-    ]
-  ));
+  String get page_6_title_2 {
+    return AppLocalizations.of(context)!.page_6_title_2;
+  }
 
-  static RichText survey = RichText(text: TextSpan(
-    children: [
+  List<String> get drug_title {
+    return [
+      AppLocalizations.of(context)!.page_6_rules_strict_1,
+      AppLocalizations.of(context)!.page_6_rules_strict_2,
+      AppLocalizations.of(context)!.page_6_rules_strict_3,
+    ];
+  }
+
+  List<String> get drug_desc {
+    return [
+      AppLocalizations.of(context)!.page_6_rules_desc_1,
+      AppLocalizations.of(context)!.page_6_rules_desc_2,
+      AppLocalizations.of(context)!.page_6_rules_desc_3,
+    ];
+  }
+
+  String get page_3_title {
+    return "DRUG DISPOSAL";
+  }
+
+  RichText get drug {
+    return RichText(
+      text: TextSpan(children: [
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_1,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_2,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_3,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_4,
+            style: style.copyWith(color: Colors.black)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_5,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_6,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_7,
+            style: style.copyWith(color: Colors.black)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_8,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_9,
+            style: style.copyWith(color: Colors.black)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3_desc_10,
+            style: style.copyWith(color: Colors.grey.shade700))
+      ]),
+    );
+  }
+
+  String get know_more {
+    return "Know More..";
+  }
+
+  RichText get drug_risks {
+    return RichText(
+      text: TextSpan(children: [
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_1,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_2,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_3,
+            style: style.copyWith(color: Colors.black)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_4,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_5,
+            style: style.copyWith(
+                color: Colors.black,
+                decoration: TextDecoration.underline,
+                decorationThickness: 2),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                _launchUrl("https://www.pnas.org/doi/10.1073/pnas.2113947119");
+              }),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_6,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+          text: AppLocalizations.of(context)!.page_3a_desc_7,
+          style: style.copyWith(
+              color: Colors.black,
+              decoration: TextDecoration.underline,
+              decorationThickness: 2),
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              _launchUrl(
+                  "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance");
+            },
+        ),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_8,
+            style: style.copyWith(color: Colors.grey.shade700)),
+        TextSpan(
+            text: AppLocalizations.of(context)!.page_3a_desc_9,
+            style: style.copyWith(color: Colors.black)),
+        TextSpan(
+          text: AppLocalizations.of(context)!.page_3a_desc_10,
+          style: style.copyWith(
+              color: Colors.black,
+              decoration: TextDecoration.underline,
+              decorationThickness: 2),
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              _launchUrl(
+                  "https://www.unep.org/resources/superbugs/environmental-action?gad_source=1&gclid=CjwKCAiAxreqBhAxEiwAfGfndDM_RbrPl9C9og4VhP0OgfRrDt9xpRaC-0VpiXPgpfkgi1zLxayKwRoCoEUQAvD_BwE");
+            },
+        ),
+      ]),
+    );
+  }
+
+  String get page_4_title_1 {
+    return AppLocalizations.of(context)!.page_4_title_1;
+  }
+
+  String get page_4_title_2 {
+    return AppLocalizations.of(context)!.page_4_title_2;
+  }
+
+  String get page_4_title_3 {
+    return AppLocalizations.of(context)!.page_4_title_3;
+  }
+
+  RichText get impact {
+    return RichText(
+        text: TextSpan(children: [
       TextSpan(
-        text: "• Survey Design: ",style: style.copyWith(color: Colors.black),
+          text: AppLocalizations.of(context)!.page_4_desc_1,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4_desc_2,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4_desc_3,
+        style: style.copyWith(
+            color: Colors.grey.shade700,
+            decoration: TextDecoration.underline,
+            decorationThickness: 2),
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            _launchUrl(
+                "https://www.researchgate.net/publication/228008880_Diclofenac_Poisoning_as_a_Cause_of_Vulture_Population_Declines_across_the_Indian_Subcontinent");
+          },
       ),
-      TextSpan(text:  "Questionnaire-based, mixed-method study targeting individuals of all genders aged 18 and above.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• Structure: ",style: style.copyWith(color: Colors.black)),
-      TextSpan(text: "Part 1: Collected personal details of participants. Part 2: Focused on practices and perceptions regarding unused medication disposal.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "• Questionnaire Development: ",style: style.copyWith(color: Colors.black)),
-      TextSpan(text: "Framed in English, adapted from published literature, and validated by subject experts. Pilot-tested with 15 respondents to refine the questions (pilot responses excluded from final analysis).\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "Content: ",style: style.copyWith(color: Colors.black)),
-      TextSpan(text: "Five sections covering demographics, knowledge, current practices, awareness, accessibility of disposal methods, and suggestions.\n\n",style: style.copyWith(color: Colors.grey.shade700)),
-      TextSpan(text: "Participation: ",style: style.copyWith(color: Colors.black)),
-      TextSpan(text: "Voluntary, with informed consent obtained.",style: style.copyWith(color: Colors.grey.shade700))
-    ]
-  ));
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4_desc_4,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4_desc_5,
+          style: style.copyWith(color: Colors.black)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4_desc_6,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(text: "97%. ", style: style.copyWith(color: Colors.black)),
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4_desc_7,
+        style: style.copyWith(
+            color: Colors.grey.shade700,
+            decoration: TextDecoration.underline,
+            decorationThickness: 2),
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            _launchUrl(
+                "https://www.sciencehistory.org/stories/magazine/poison-pill-the-mysterious-die-off-of-indias-vultures/");
+          },
+      ),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4_desc_8,
+          style: style.copyWith(color: Colors.grey.shade700))
+    ]));
+  }
 
-  static String survey_2 = "From the survey conducted on 382 participants, it was found that 66.1 % participants were unaware of the proper drug disposal methods and guidelines.";
+  String get page_4a_title {
+    return AppLocalizations.of(context)!.page_4a_title;
+  }
+
+  RichText get effect {
+    return RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4a_desc_1,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4a_desc_2,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4a_desc_3,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4a_desc_4,
+        style: style.copyWith(color: Colors.grey.shade700),
+      ),
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4a_desc_5,
+        style: style.copyWith(color: Colors.grey.shade700),
+      ),
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4a_desc_6,
+        style: style.copyWith(
+            color: Colors.grey.shade700,
+            decoration: TextDecoration.underline,
+            decorationThickness: 2),
+        recognizer: TapGestureRecognizer()
+          ..onTap = () {
+            _launchUrl("https://pubmed.ncbi.nlm.nih.gov/12651186/");
+          },
+      ),
+    ]));
+  }
+
+  RichText get survey {
+    return RichText(
+        text: TextSpan(children: [
+      TextSpan(
+        text: AppLocalizations.of(context)!.page_4b_desc_1,
+        style: style.copyWith(color: Colors.black),
+      ),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_2,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_3,
+          style: style.copyWith(color: Colors.black)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_4,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_5,
+          style: style.copyWith(color: Colors.black)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_6,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_7,
+          style: style.copyWith(color: Colors.black)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_9,
+          style: style.copyWith(color: Colors.grey.shade700)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_10,
+          style: style.copyWith(color: Colors.black)),
+      TextSpan(
+          text: AppLocalizations.of(context)!.page_4b_desc_11,
+          style: style.copyWith(color: Colors.grey.shade700))
+    ]));
+  }
+
+  String get survey_2 {
+    return "From the survey conducted on 382 participants, it was found that 66.1 % participants were unaware of the proper drug disposal methods and guidelines.";
+  }
 }
-
-
 
 TextStyle style = TextStyle(
     letterSpacing: 1,
@@ -172,8 +334,8 @@ TextStyle style = TextStyle(
     fontSize: 2.001 * SizeConfig.heightMultiplier);
 
 Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
-    }
+  final Uri uri = Uri.parse(url);
+  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+    throw 'Could not launch $url';
   }
+}

@@ -43,6 +43,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -68,7 +69,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.only(
                                 left: 6.320 * SizeConfig.heightMultiplier),
                             child: Text(
-                              "Drug Take-Back",
+                              strings.page_6_title_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -90,12 +91,12 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.66,
+                          heightFactor: 0.62,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 25.66 * SizeConfig.widthMultiplier),
                             child: Text(
-                              "Programs",
+                              strings.page_6_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -125,11 +126,11 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
-                        Card(Strings.drug_title[0], Strings.drug_desc[0]),
+                        Card(strings.drug_title[0], strings.drug_desc[0]),
                         SizedBox(
                           width: 2.678 * SizeConfig.widthMultiplier,
                         ),
-                        Card(Strings.drug_title[1], Strings.drug_desc[1])
+                        Card(strings.drug_title[1], strings.drug_desc[1])
                       ],
                     );
                   }),
@@ -146,7 +147,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                   itemBuilder: (builder, index) {
                     return Row(
                       children: [
-                        Card(Strings.drug_title[2], Strings.drug_desc[2]),
+                        Card(strings.drug_title[2], strings.drug_desc[2]),
                       ],
                     );
                   }),

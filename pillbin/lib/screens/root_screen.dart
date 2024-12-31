@@ -56,14 +56,20 @@ class _RootScreenState extends State<RootScreen> {
                   ),
                   onTap: () {
                     i == 3
-                        ? _navigateToPage(i + 1)
+                        ? _navigateToPage(i )
                         : i == 4
-                            ? _navigateToPage(i + 1)
+                            ? _navigateToPage(i + 2)
                             : i == 5
-                                ? _navigateToPage(i + 1)
+                                ? _navigateToPage(i + 2)
                                 : i == 6
                                     ? _navigateToPage(i + 2)
-                                    : _navigateToPage(i);
+                                    : i == 7
+                                        ? _navigateToPage(i + 2)
+                                        : i == 8
+                                            ? _navigateToPage(i + 3)
+                                            : i == 9
+                                                ? _navigateToPage(i + 4)
+                                                : _navigateToPage(i);
                   },
                 ),
               )
@@ -147,12 +153,12 @@ class _RootScreenState extends State<RootScreen> {
             pageNotifier: pageNotifier,
           ),
           Page8A(
-            ontap: (){},
+            ontap: () {},
             pageIndex: 11,
             pageNotifier: pageNotifier,
           ),
           Page8B(
-            ontap: (){},
+            ontap: () {},
             pageIndex: 12,
             pageNotifier: pageNotifier,
           ),

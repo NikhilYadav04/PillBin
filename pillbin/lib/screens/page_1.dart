@@ -2,6 +2,7 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page1 extends StatefulWidget {
   Page1(
@@ -137,7 +138,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                             ),
                             Text(
                               maxLines: 2,
-                              "SAFE\nDISPOSAL,",
+                              AppLocalizations.of(context)!.page_1_header_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Medium",
@@ -145,7 +146,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                             ),
                             Text(
                               maxLines: 2,
-                              "SAFER\nTOMORROW",
+                              AppLocalizations.of(context)!.page_1_header_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -181,7 +182,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
         child: Center(
           child: Text(
             maxLines: 1,
-            "Know More",
+            AppLocalizations.of(context)!.page_1_button,
             style: TextStyle(
               color: Colors.black,
               fontFamily: "Hanken_Medium",

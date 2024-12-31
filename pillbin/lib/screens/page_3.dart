@@ -4,6 +4,7 @@ import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page3 extends StatefulWidget {
   Page3(
@@ -38,6 +39,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(children: [
         SizedBox(
@@ -84,7 +86,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "DRUG DISPOSAL",
+                strings.page_3_title,
                 style: TextStyle(
                     fontFamily: "Libre_Bold",
                     fontWeight: FontWeight.bold,
@@ -93,7 +95,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
               SizedBox(
                 height: 1.8 * SizeConfig.heightMultiplier,
               ),
-              Strings.drug,
+              strings.drug,
               SizedBox(
                 height: 1.8 * SizeConfig.heightMultiplier,
               ),
@@ -106,7 +108,7 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
                   TextSpan(
                       text: "• ", style: style.copyWith(color: Colors.black)),
                   TextSpan(
-                      text: "Know More...",
+                      text: strings.know_more,
                       style: style.copyWith(
                           color: Colors.black,
                           decorationStyle: TextDecorationStyle.solid,
@@ -124,3 +126,9 @@ class _Page3State extends State<Page3> with SingleTickerProviderStateMixin {
     );
   }
 }
+
+TextStyle style = TextStyle(
+    letterSpacing: 1,
+    fontFamily: "Libre_Regular",
+    fontWeight: FontWeight.w600,
+    fontSize: 2.001 * SizeConfig.heightMultiplier);

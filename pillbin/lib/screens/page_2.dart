@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
-import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
-import 'package:pillbin/styling/strings/strings.dart';
 import 'package:pillbin/styling/strings/strings_2.dart';
 
 class Page2 extends StatefulWidget {
@@ -23,6 +21,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<double> _positionAnimation;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -45,6 +44,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final Strings2 strings = Strings2(context);
     return SingleChildScrollView(
       child: Column(children: [
         Container(
@@ -69,7 +69,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
                         heightFactor: 0.8,
                         child: Center(
                           child: Text(
-                            "About Us",
+                            strings.page_2_title,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           padding: EdgeInsets.symmetric(horizontal: 28),
           child: Center(
             child: Text(
-              Strings2.about_us,
+              strings.page_2_desc,
               style: TextStyle(
                   color: Colors.black, fontFamily: "Hanken_Bold", fontSize: 24),
             ),

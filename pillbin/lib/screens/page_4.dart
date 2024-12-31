@@ -45,6 +45,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -68,7 +69,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                           heightFactor: 0.4,
                           child: Center(
                               child: Text(
-                                "Impact of Pharmaceutical",
+                                strings.page_4_title_1,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
@@ -93,7 +94,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                           heightFactor: 1.05,
                           child:  Center(
                               child: Text(
-                                "Contaminants on",
+                                strings.page_4_title_2,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
@@ -118,7 +119,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                           heightFactor: 0.5,
                           child: Center(
                               child: Text(
-                                " Biodiversity and Ecosystems",
+                                strings.page_4_title_3,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
@@ -141,7 +142,8 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
               padding: EdgeInsets.only(
                   left: 1.264 * SizeConfig.heightMultiplier,
                   right: 0.526 * SizeConfig.heightMultiplier),
-              child: Strings.impact),
+              child: strings.impact
+              ),
           SizedBox(
             height: 2 * SizeConfig.heightMultiplier,
           ),

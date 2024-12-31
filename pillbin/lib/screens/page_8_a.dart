@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:pillbin/styling/strings/strings.dart';
 import 'package:pillbin/styling/strings/strings_2.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page8A extends StatefulWidget {
   Page8A(
@@ -45,6 +47,7 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings2(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -68,7 +71,7 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
                           heightFactor: 0.4,
                           child: Center(
                             child: Text(
-                              "Views of Pharmacy Students",
+                              AppLocalizations.of(context)!.page_8a_title_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -92,7 +95,7 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
                           heightFactor: 1.05,
                           child: Center(
                             child: Text(
-                              "collected during survey on",
+                              AppLocalizations.of(context)!.page_8a_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -116,7 +119,7 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
                           heightFactor: 0.5,
                           child: Center(
                             child: Text(
-                              "Drug Disposal Awareness",
+                              AppLocalizations.of(context)!.page_8a_title_3,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -132,11 +135,11 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
             ),
           ),
           SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
-          _review(Strings2.view_student_1),
+          _review(strings.view_student_1),
           SizedBox(height: 15,),
-          _review(Strings2.view_student_2),
+          _review(strings.view_student_2),
           SizedBox(height: 15,),
-          _review(Strings2.view_student_3),
+          _review(strings.view_student_3),
            SizedBox(height: 55,),
         ],
       ),

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:pillbin/styling/strings/strings_2.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page7 extends StatefulWidget {
   Page7(
@@ -52,6 +54,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings2(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -111,7 +114,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Drug Disposal\nMethods",
+                                    strings.page_7_title_1,
                                     style: TextStyle(
                                         fontFamily: "Libre_Bold",
                                         fontWeight: FontWeight.bold,
@@ -140,7 +143,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Flush Drugs as per\nUS FDA",
+                  AppLocalizations.of(context)!.page_7_text_1,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -156,7 +159,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Medicine Disposal Guidelines",
+                  AppLocalizations.of(context)!.page_7_text_2,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -172,7 +175,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "1. Follow Healthcare Provider Instructions",
+                  AppLocalizations.of(context)!.page_7_text_3,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -188,7 +191,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "   Dispose of unused or expired medicines as directed by your doctor or pharmacist.",
+                  AppLocalizations.of(context)!.page_7_text_4,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -205,7 +208,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "2. Preferred Disposal Methods",
+                  AppLocalizations.of(context)!.page_7_text_5,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -221,7 +224,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Use a drug take-back option",
+                  AppLocalizations.of(context)!.page_7_text_6,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -237,7 +240,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "  • Drop off medicines at an authorized take-back location\n  • Mail them using a pre-paid drug mail-back envelope.",
+                 AppLocalizations.of(context)!.page_7_text_7,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -254,7 +257,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "3. Check the FDA's Flush List",
+                  AppLocalizations.of(context)!.page_7_text_8,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -270,7 +273,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  " If take-back options are unavailable, verify if the medicine is on the FDA’s Flush List. Only flush medicines that:",
+                  AppLocalizations.of(context)!.page_7_text_9,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -287,7 +290,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  " • Have high misuse or abuse potential.\n • Can cause death from a single dose if improperly used..",
+                 AppLocalizations.of(context)!.page_7_text_10,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -304,7 +307,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Important Reminder",
+                  AppLocalizations.of(context)!.page_7_text_11,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.bold,
@@ -320,14 +323,14 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                     text: TextSpan(children: [
                   TextSpan(
                       text:
-                          "Do not flush medicines unless they are explicitly listed on the FDA's Flush List.",
+                         AppLocalizations.of(context)!.page_7_text_12,
                       style: TextStyle(
                           fontFamily: "Libre_Regular",
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 2.001 * SizeConfig.heightMultiplier)),
                   TextSpan(
-                    text: " Know More",
+                    text: AppLocalizations.of(context)!.page_7_text_13,
                     style: TextStyle(
                         fontFamily: "Libre_Regular",
                         decoration: TextDecoration.underline,

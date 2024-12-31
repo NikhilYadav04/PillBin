@@ -45,6 +45,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -70,7 +71,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                           heightFactor: 0.6,
                           child: Center(
                               child: Text(
-                                "Effect on Marine Life",
+                                strings.page_4a_title,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
@@ -95,7 +96,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 1.2 * SizeConfig.heightMultiplier,
                 ),
-                Strings.effect,
+                strings.effect,
                 Image.asset(
                   "assets/fish.png",
                   height: 390,

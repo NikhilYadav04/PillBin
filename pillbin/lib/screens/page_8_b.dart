@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings_2.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page8B extends StatefulWidget {
   Page8B(
@@ -50,6 +51,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings2(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -70,10 +72,10 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.topLeft,
-                          heightFactor: 0.4,
+                          heightFactor: 0.3,
                           child: Center(
                             child: Text(
-                              "Views of Doctors",
+                              AppLocalizations.of(context)!.page_8b_title_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -94,10 +96,10 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 1.05,
+                          heightFactor: 1.15,
                           child: Center(
                             child: Text(
-                              "collected during survey on",
+                               AppLocalizations.of(context)!.page_8b_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -118,10 +120,10 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.5,
+                          heightFactor: 0.6,
                           child: Center(
                             child: Text(
-                              "Drug Disposal Awareness",
+                               AppLocalizations.of(context)!.page_8b_title_3,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -137,15 +139,15 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
             ),
           ),
           SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
-          _review(Strings2.view_doctor_1),
+          _review(strings.view_doctor_1),
           SizedBox(
             height: 15,
           ),
-          _review(Strings2.view_doctor_2),
+          _review(strings.view_doctor_2),
           SizedBox(
             height: 15,
           ),
-          _review(Strings2.view_doctor_3),
+          _review(strings.view_doctor_3),
           SizedBox(
             height: 55,
           ),

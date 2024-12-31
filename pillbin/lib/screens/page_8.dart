@@ -4,6 +4,7 @@ import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page8 extends StatefulWidget {
   Page8(
@@ -108,7 +109,8 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Non Flush Drugs",
+                                    AppLocalizations.of(context)!
+                                        .page_8_title_1,
                                     style: TextStyle(
                                         fontFamily: "Libre_Bold",
                                         fontWeight: FontWeight.bold,
@@ -132,7 +134,7 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "If drug take-back options are unavailable, dispose of most medicines at home by:",
+                  AppLocalizations.of(context)!.page_8_text_1,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
@@ -149,7 +151,7 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "  1. Removing them from their original containers.",
+                  AppLocalizations.of(context)!.page_8_text_2,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
@@ -166,7 +168,7 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "  2. Mixing them with an unappealing substance like dirt, cat litter, or coffee grounds (without crushing tablets/capsules).",
+                  AppLocalizations.of(context)!.page_8_text_3,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
@@ -183,7 +185,7 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "  3. Placing the mixture in a sealed plastic bag.",
+                  AppLocalizations.of(context)!.page_8_text_4,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
@@ -200,7 +202,7 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "  4. Throwing the sealed bag in your household trash.",
+                  AppLocalizations.of(context)!.page_8_text_5,
                   style: TextStyle(
                       fontFamily: "Libre_Regular",
                       fontWeight: FontWeight.w600,
@@ -219,15 +221,14 @@ class _Page8State extends State<Page8> with SingleTickerProviderStateMixin {
                 child: RichText(
                     text: TextSpan(children: [
                   TextSpan(
-                      text:
-                          "  5. Scratching out personal information on prescription labels before  throwing the empty containers.",
+                      text: AppLocalizations.of(context)!.page_8_text_6,
                       style: TextStyle(
                           fontFamily: "Libre_Regular",
                           color: Color.fromARGB(255, 78, 76, 76),
                           fontWeight: FontWeight.bold,
                           fontSize: 2.001 * SizeConfig.heightMultiplier)),
                   TextSpan(
-                    text: " Know More",
+                    text: AppLocalizations.of(context)!.page_8_text_7,
                     style: TextStyle(
                         fontFamily: "Libre_Regular",
                         decoration: TextDecoration.underline,
