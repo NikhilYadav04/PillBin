@@ -22,14 +22,13 @@ class MyApp extends StatelessWidget {
       SizeConfig().init(constraints);
       return GetMaterialApp(
           supportedLocales: L10n.all,
-          locale: Get.deviceLocale,
-          fallbackLocale: Strings2.app_locale,
+          locale: Strings2.app_locale,
           localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           debugShowCheckedModeBanner: false,
           title: 'PillBin',
           home: RootScreen());

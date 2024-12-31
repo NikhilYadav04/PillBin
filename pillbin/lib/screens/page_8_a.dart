@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
-import 'package:pillbin/styling/strings/strings.dart';
 import 'package:pillbin/styling/strings/strings_2.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -52,7 +51,7 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
       child: Column(
         children: [
           SizedBox(
-            height: 2.5 * SizeConfig.heightMultiplier,
+            height: 1.4 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
             height: 17.323 * SizeConfig.heightMultiplier,
@@ -136,11 +135,17 @@ class _Page8AState extends State<Page8A> with SingleTickerProviderStateMixin {
           ),
           SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
           _review(strings.view_student_1),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 1.5800 * SizeConfig.heightMultiplier,
+          ),
           _review(strings.view_student_2),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 1.5800 * SizeConfig.heightMultiplier,
+          ),
           _review(strings.view_student_3),
-           SizedBox(height: 55,),
+          SizedBox(
+            height: 5.793 * SizeConfig.heightMultiplier,
+          ),
         ],
       ),
     );
@@ -157,18 +162,18 @@ Widget _review(String text) {
           alignment: Alignment.centerLeft,
           child: Image.asset(
             Images.Comma,
-            height: 70,
-            width: 70,
+            height: 7.373 * SizeConfig.heightMultiplier,
+            width: 15.625 * SizeConfig.widthMultiplier,
           ),
         ),
         SizedBox(
-          height: 15,
+          height: 1.5800 * SizeConfig.heightMultiplier,
         ),
         Text(text,
             style: TextStyle(
                 color: Colors.grey.shade700,
                 fontWeight: FontWeight.bold,
-                fontSize: 19,
+                fontSize: 2.001 * SizeConfig.heightMultiplier,
                 fontFamily: "Hanken_Medium")),
       ],
     ),

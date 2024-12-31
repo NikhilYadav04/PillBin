@@ -169,6 +169,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   }
 
   Widget Button(void Function() onTap) {
+        print("jjjjjjjjjjjj ${AppLocalizations.of(context)!.page_1_header_1}");
     return GestureDetector(
       onTap: onTap,
       child: Container(

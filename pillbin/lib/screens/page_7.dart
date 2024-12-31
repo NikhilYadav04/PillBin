@@ -62,7 +62,7 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
             height: 3.160 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
-            height: 53 * SizeConfig.heightMultiplier,
+            height: 53.9 * SizeConfig.heightMultiplier,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -118,11 +118,11 @@ class _Page7State extends State<Page7> with SingleTickerProviderStateMixin {
                                     style: TextStyle(
                                         fontFamily: "Libre_Bold",
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 4.213 *
+                                        fontSize: 4.2 *
                                             SizeConfig.heightMultiplier),
                                   ),
                                   SizedBox(
-                                    height: 1.580 * SizeConfig.heightMultiplier,
+                                    height: 1.4 * SizeConfig.heightMultiplier,
                                   ),
                                 ],
                               ),

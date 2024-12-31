@@ -13,6 +13,7 @@ class Images{
   static const Poster = "assets/poster.png";
   static const Survey = "assets/survey.png";
   static const Comma = "assets/comma.png";
+  static const Earth = "assets/earth.png";
 
   static const Logo = "assets/Logo.png";
 }

@@ -141,15 +141,15 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
           SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
           _review(strings.view_doctor_1),
           SizedBox(
-            height: 15,
+            height: 1.580*SizeConfig.heightMultiplier,
           ),
           _review(strings.view_doctor_2),
           SizedBox(
-            height: 15,
+            height: 1.580*SizeConfig.heightMultiplier,
           ),
           _review(strings.view_doctor_3),
           SizedBox(
-            height: 55,
+            height:5.793*SizeConfig.heightMultiplier,
           ),
         ],
       ),
@@ -159,7 +159,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
 
 Widget _review(String text) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal:40),
+    padding: EdgeInsets.symmetric(horizontal:8.928*SizeConfig.widthMultiplier),
     child: Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,18 +168,18 @@ Widget _review(String text) {
             alignment: Alignment.centerLeft,
             child: Image.asset(
               Images.Comma,
-              height: 65,
-              width: 65,
+              height: 6.8469*SizeConfig.heightMultiplier,
+              width: 14.508*SizeConfig.widthMultiplier,
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 2.106*SizeConfig.heightMultiplier,
           ),
           Text(text,
               style: TextStyle(
                   color: Colors.grey.shade700,
                   fontWeight: FontWeight.bold,
-                  fontSize: 19,
+                  fontSize: 2.001*SizeConfig.heightMultiplier,
                   fontFamily: "Hanken_Medium")),
         ],
       ),

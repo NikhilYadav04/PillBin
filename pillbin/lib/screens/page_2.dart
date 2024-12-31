@@ -52,7 +52,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           height: 1 * SizeConfig.heightMultiplier,
         ),
         Container(
-          height: 90,
+          height: 9.480*SizeConfig.heightMultiplier,
           color: Colours.Very_Light_Blue,
           child: Stack(
             fit: StackFit.expand,
@@ -86,17 +86,17 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 28),
+          padding: EdgeInsets.symmetric(horizontal: 6.25*SizeConfig.widthMultiplier),
           child: Center(
             child: Text(
               strings.page_2_desc,
               style: TextStyle(
-                  color: Colors.black, fontFamily: "Hanken_Bold", fontSize: 24),
+                  color: Colors.black, fontFamily: "Hanken_Bold", fontSize:2.528*SizeConfig.heightMultiplier),
             ),
           ),
         ),
         SizedBox(
-          height: 25,
+          height: 2.633*SizeConfig.heightMultiplier,
         ),
       ]),
     );

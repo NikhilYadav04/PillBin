@@ -54,7 +54,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
             height: 3.160 * SizeConfig.heightMultiplier,
           ),
           Container(
-            height: 70,
+            height: 7.373 * SizeConfig.heightMultiplier,
             color: Colours.Very_Light_Blue,
             child: Stack(
               fit: StackFit.expand,
@@ -70,15 +70,14 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                           alignment: Alignment.topLeft,
                           heightFactor: 0.6,
                           child: Center(
-                              child: Text(
-                                strings.page_4a_title,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: "Hanken_Bold",
-                                    fontSize:
-                                       4.1 * SizeConfig.heightMultiplier),
-                              ),
+                            child: Text(
+                              strings.page_4a_title,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Hanken_Bold",
+                                  fontSize: 4.1 * SizeConfig.heightMultiplier),
                             ),
+                          ),
                         ),
                       ),
                     );
@@ -97,17 +96,17 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                   height: 1.2 * SizeConfig.heightMultiplier,
                 ),
                 strings.effect,
-                Image.asset(
+              ],
+            ),
+          ),
+           Image.asset(
                   "assets/fish.png",
-                  height: 390,
-                  width: 390,
+                  height: 43.028*SizeConfig.heightMultiplier,
+                  width: 85.821*SizeConfig.widthMultiplier,
                 ),
                   SizedBox(
                     height:2.4 * SizeConfig.heightMultiplier,
                   ),
-              ],
-            ),
-          )
         ],
       ),
     );

@@ -80,7 +80,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                                      3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -107,7 +107,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                                      3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -134,7 +134,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
-                                      3.686 * SizeConfig.heightMultiplier),
+                                      3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -159,8 +159,8 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                   ),
                   Image.asset(
                     Images.Image_3,
-                    width: 420,
-                    height: 420,
+                    width: 93.75*SizeConfig.widthMultiplier,
+                    height: 44.243*SizeConfig.heightMultiplier,
                   ),
                   SizedBox(
                     height: 1.8 * SizeConfig.heightMultiplier,

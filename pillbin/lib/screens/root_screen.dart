@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pillbin/controller/GetX_dropdown.dart';
 import 'package:pillbin/screens/page_1.dart';
 import 'package:pillbin/screens/page_2.dart';
 import 'package:pillbin/screens/page_3.dart';
@@ -16,8 +18,10 @@ import 'package:pillbin/screens/page_8_a.dart';
 import 'package:pillbin/screens/page_8_b.dart';
 import 'package:pillbin/screens/page_9.dart';
 import 'package:pillbin/styling/colors/colors.dart';
+import 'package:pillbin/styling/images/images.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
+import 'package:pillbin/styling/widgets/widget.dart';
 
 class RootScreen extends StatefulWidget {
   RootScreen({super.key});
@@ -30,9 +34,11 @@ class _RootScreenState extends State<RootScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final ValueNotifier<int> pageNotifier = ValueNotifier<int>(0);
   final PageController pageController = PageController();
+  final DropDownController _dropDownController = Get.put(DropDownController());
 
   @override
   Widget build(BuildContext context) {
+    final strings = Strings(context);
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colours.Very_Light_Blue,
@@ -44,10 +50,11 @@ class _RootScreenState extends State<RootScreen> {
             ),
             for (int i = 0; i < 10; i++)
               Padding(
-                padding: EdgeInsets.only(left: 18),
+                padding:
+                    EdgeInsets.only(left: 4.017 * SizeConfig.widthMultiplier),
                 child: ListTile(
                   title: Text(
-                    Strings.drawer_items[i],
+                    strings.drawer_items[i],
                     style: TextStyle(
                         fontSize: 2.212 * SizeConfig.heightMultiplier,
                         fontWeight: FontWeight.w600,
@@ -56,7 +63,7 @@ class _RootScreenState extends State<RootScreen> {
                   ),
                   onTap: () {
                     i == 3
-                        ? _navigateToPage(i )
+                        ? _navigateToPage(i)
                         : i == 4
                             ? _navigateToPage(i + 2)
                             : i == 5
@@ -72,7 +79,72 @@ class _RootScreenState extends State<RootScreen> {
                                                 : _navigateToPage(i);
                   },
                 ),
-              )
+              ),
+            Obx(
+              () => Padding(
+                padding: EdgeInsets.only(
+                    left: 7.700 * SizeConfig.widthMultiplier,
+                    top: 1.1 * SizeConfig.heightMultiplier),
+                child: GestureDetector(
+                  onTap: () {
+                    _dropDownController.isExpanded.value =
+                        !_dropDownController.isExpanded.value;
+                  },
+                  child: Row(
+                    children: [
+                      _text("Select Language ",(){}),
+                      _dropDownController.isExpanded.isTrue
+                          ? Icon(
+                              Icons.arrow_drop_up,
+                              color: Colors.grey.shade800,
+                              size: 3.581 * SizeConfig.heightMultiplier,
+                            )
+                          : Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.grey.shade800,
+                              size: 3.581 * SizeConfig.heightMultiplier,
+                            )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Obx(
+              () => _dropDownController.isExpanded.value
+                  ? AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
+                      color: Colours.Light_Blue,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: 7.8 * SizeConfig.widthMultiplier,
+                            top: 2 * SizeConfig.heightMultiplier),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _text("English", () {
+                              _dropDownController.setLanguage('en');
+                            }),
+                            SizedBox(
+                              height: 2 * SizeConfig.heightMultiplier,
+                            ),
+                            _text("हिन्दी", () {
+                              _dropDownController.setLanguage('hi');
+                            }),
+                            SizedBox(
+                              height: 2 * SizeConfig.heightMultiplier,
+                            ),
+                            _text("मराठी", () {
+                              _dropDownController.setLanguage('mr');
+                            }),
+                            SizedBox(
+                              height: 2 * SizeConfig.heightMultiplier,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  : SizedBox(),
+            )
           ],
         ),
         width: 66.964 * SizeConfig.widthMultiplier,
@@ -83,7 +155,7 @@ class _RootScreenState extends State<RootScreen> {
       appBar: AppBar(
         leading: Container(),
         backgroundColor: Colours.Very_Light_Blue,
-        toolbarHeight: 7.373 * SizeConfig.heightMultiplier,
+        toolbarHeight: 8.373 * SizeConfig.heightMultiplier,
         actions: [
           IconButton(
             icon: Icon(
@@ -182,4 +254,18 @@ class _RootScreenState extends State<RootScreen> {
       );
     });
   }
+}
+
+Widget _text(String text, void Function() onTap) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Text(
+      text,
+      style: TextStyle(
+          fontSize: 2.212 * SizeConfig.heightMultiplier,
+          fontWeight: FontWeight.w600,
+          color: Colors.grey.shade800,
+          fontFamily: "Libre_Regular"),
+    ),
+  );
 }

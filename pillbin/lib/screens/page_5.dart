@@ -64,7 +64,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.topCenter,
-                          heightFactor: 0.4,
+                          heightFactor: 0.25,
                           child: Padding(
                             padding: EdgeInsets.only(),
                             child: Center(
@@ -92,7 +92,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 1.150,
+                          heightFactor: 1.3,
                           child: Padding(
                             padding: EdgeInsets.symmetric(),
                             child: Center(
@@ -120,7 +120,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.72,
+                          heightFactor: 0.86,
                           child: Padding(
                             padding: EdgeInsets.symmetric(),
                             child: Center(
@@ -148,7 +148,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.bottomLeft,
-                          heightFactor: 0.28,
+                          heightFactor: 0.4,
                           child: Padding(
                             padding: EdgeInsets.symmetric(),
                             child: Center(
@@ -171,7 +171,7 @@ class _Page5State extends State<Page5> with SingleTickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 3.160 * SizeConfig.heightMultiplier,
+            height: 2 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
             height: 35.814 * SizeConfig.heightMultiplier,

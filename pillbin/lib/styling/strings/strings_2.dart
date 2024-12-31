@@ -21,7 +21,7 @@ class Strings2 {
   }
 
   String get view_student_3 {
-    return  AppLocalizations.of(context)!.page_8a_views_3;
+    return AppLocalizations.of(context)!.page_8a_views_3;
   }
 
   String get view_doctor_1 {

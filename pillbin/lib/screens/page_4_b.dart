@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../styling/colors/colors.dart';
 
@@ -52,10 +53,10 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
         children: [
           Container(
             color: Colours.Very_Light_Blue,
-            height: 3.160 * SizeConfig.heightMultiplier,
+            height: 2 * SizeConfig.heightMultiplier,
           ),
           Container(
-            height: 125,
+            height: 13.167*SizeConfig.heightMultiplier,
             color: Colours.Very_Light_Blue,
             child: Stack(
               fit: StackFit.expand,
@@ -72,7 +73,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                           heightFactor: 0.4,
                           child: Center(
                             child: Text(
-                              "Survey on Drug",
+                              AppLocalizations.of(context)!.page_4b_title_1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -96,7 +97,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                           heightFactor: 1.25,
                           child: Center(
                             child: Text(
-                              "Disposal Awareness",
+                              AppLocalizations.of(context)!.page_4b_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
@@ -127,13 +128,13 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 5.357*SizeConfig.widthMultiplier),
             child: Column(
               children: [
                 Center(
                   child: Text(
                     strings.survey_2,
-                    style: style.copyWith(color: Colors.black, fontSize: 17),
+                    style: style.copyWith(color: Colors.black, fontSize: 1.790*SizeConfig.heightMultiplier),
                   ),
                 ),
                 SizedBox(
@@ -144,8 +145,8 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
           ),
           Image.asset(
             "assets/survey.png",
-            height: 415,
-            width: 415,
+            height: 43.715*SizeConfig.heightMultiplier,
+            width: 92.633*SizeConfig.widthMultiplier,
           ),
           SizedBox(
             height: 3 * SizeConfig.heightMultiplier,

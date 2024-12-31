@@ -8,18 +8,20 @@ class Strings {
   final BuildContext context;
   Strings(this.context);
 
-  static List<String> drawer_items = [
-    "Home",
-    "About Us",
-    "Drug Disposal",
-    "Risks",
-    "Survey",
-    "Reasons for Policy",
-    "Take-back Programs",
-    "Disposal Methods",
-    "Views",
-    "Know More"
-  ];
+  List<String> get drawer_items {
+    return [
+      AppLocalizations.of(context)!.drawer_1,
+      AppLocalizations.of(context)!.drawer_2,
+      AppLocalizations.of(context)!.drawer_3,
+      AppLocalizations.of(context)!.drawer_4,
+      AppLocalizations.of(context)!.drawer_5,
+      AppLocalizations.of(context)!.drawer_6,
+      AppLocalizations.of(context)!.drawer_7,
+      AppLocalizations.of(context)!.drawer_8,
+      AppLocalizations.of(context)!.drawer_9,
+      AppLocalizations.of(context)!.drawer_10,
+    ];
+  }
 
   String get page_5_title_1 {
     return AppLocalizations.of(context)!.page_5_title_1;
@@ -80,7 +82,7 @@ class Strings {
   }
 
   String get page_3_title {
-    return "DRUG DISPOSAL";
+    return AppLocalizations.of(context)!.page_3_title;
   }
 
   RichText get drug {
@@ -121,7 +123,7 @@ class Strings {
   }
 
   String get know_more {
-    return "Know More..";
+    return AppLocalizations.of(context)!.page_3a_desc_5;
   }
 
   RichText get drug_risks {
@@ -323,7 +325,7 @@ class Strings {
   }
 
   String get survey_2 {
-    return "From the survey conducted on 382 participants, it was found that 66.1 % participants were unaware of the proper drug disposal methods and guidelines.";
+    return AppLocalizations.of(context)!.page_4b_desc_detail;
   }
 }
 

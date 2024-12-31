@@ -50,7 +50,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
       child: Column(
         children: [
           SizedBox(
-            height: 3.160 * SizeConfig.heightMultiplier,
+            height: 1.5 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
             height: 17.323 * SizeConfig.heightMultiplier,
@@ -74,7 +74,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        3.5 * SizeConfig.heightMultiplier),
+                                        3.4 * SizeConfig.heightMultiplier),
                               ),
                             ),
                         ),
@@ -99,7 +99,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        3.3 * SizeConfig.heightMultiplier),
+                                        3.4 * SizeConfig.heightMultiplier),
                               ),
                             ),
                         ),
@@ -124,7 +124,7 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
                                     color: Colors.black,
                                     fontFamily: "Hanken_Bold",
                                     fontSize:
-                                        3.23* SizeConfig.heightMultiplier),
+                                        3.2* SizeConfig.heightMultiplier),
                               ),
                             ),
                         ),
@@ -149,8 +149,8 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
           ),
           Image.asset(
             Images.Image_4,
-            height: 420,
-            width: 420,
+            height: 44.241*SizeConfig.heightMultiplier,
+            width:93.75*SizeConfig.widthMultiplier,
           ),
           SizedBox(
             height: 3.160 * SizeConfig.heightMultiplier,
