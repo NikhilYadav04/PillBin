@@ -51,10 +51,10 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
         children: [
           Container(
             color: Colours.Very_Light_Blue,
-            height: 3.160 * SizeConfig.heightMultiplier,
+            height: 2.4 * SizeConfig.heightMultiplier,
           ),
           Container(
-            height: 7.373 * SizeConfig.heightMultiplier,
+            height: 7.7 * SizeConfig.heightMultiplier,
             color: Colours.Very_Light_Blue,
             child: Stack(
               fit: StackFit.expand,
@@ -68,7 +68,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                         opacity: _opacityAnimation.value,
                         child: FractionallySizedBox(
                           alignment: Alignment.topLeft,
-                          heightFactor: 0.6,
+                          heightFactor: 0.8,
                           child: Center(
                             child: Text(
                               strings.page_4a_title,

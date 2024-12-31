@@ -86,7 +86,7 @@ class _Page2State extends State<Page2> with SingleTickerProviderStateMixin {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 6.25*SizeConfig.widthMultiplier),
+          padding: EdgeInsets.symmetric(horizontal: 5.8*SizeConfig.widthMultiplier),
           child: Center(
             child: Text(
               strings.page_2_desc,

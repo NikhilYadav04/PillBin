@@ -90,34 +90,34 @@ class Strings {
       text: TextSpan(children: [
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_1,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_2,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_3,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_4,
             style: style.copyWith(color: Colors.black)),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_5,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_6,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_7,
             style: style.copyWith(color: Colors.black)),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_8,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_9,
             style: style.copyWith(color: Colors.black)),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3_desc_10,
-            style: style.copyWith(color: Colors.grey.shade700))
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76)))
       ]),
     );
   }
@@ -131,16 +131,16 @@ class Strings {
       text: TextSpan(children: [
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_1,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_2,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_3,
             style: style.copyWith(color: Colors.black)),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_4,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_5,
             style: style.copyWith(
@@ -153,7 +153,7 @@ class Strings {
               }),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_6,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
           text: AppLocalizations.of(context)!.page_3a_desc_7,
           style: style.copyWith(
@@ -168,7 +168,7 @@ class Strings {
         ),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_8,
-            style: style.copyWith(color: Colors.grey.shade700)),
+            style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
         TextSpan(
             text: AppLocalizations.of(context)!.page_3a_desc_9,
             style: style.copyWith(color: Colors.black)),
@@ -205,14 +205,14 @@ class Strings {
         text: TextSpan(children: [
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_1,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_2,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
         text: AppLocalizations.of(context)!.page_4_desc_3,
         style: style.copyWith(
-            color: Colors.grey.shade700,
+            color: Color.fromARGB(255, 78, 76, 76),
             decoration: TextDecoration.underline,
             decorationThickness: 2),
         recognizer: TapGestureRecognizer()
@@ -223,18 +223,18 @@ class Strings {
       ),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_4,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_5,
           style: style.copyWith(color: Colors.black)),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_6,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(text: "97%. ", style: style.copyWith(color: Colors.black)),
       TextSpan(
         text: AppLocalizations.of(context)!.page_4_desc_7,
         style: style.copyWith(
-            color: Colors.grey.shade700,
+            color: Color.fromARGB(255, 78, 76, 76),
             decoration: TextDecoration.underline,
             decorationThickness: 2),
         recognizer: TapGestureRecognizer()
@@ -245,7 +245,7 @@ class Strings {
       ),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4_desc_8,
-          style: style.copyWith(color: Colors.grey.shade700))
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76)))
     ]));
   }
 
@@ -258,25 +258,25 @@ class Strings {
         text: TextSpan(children: [
       TextSpan(
           text: AppLocalizations.of(context)!.page_4a_desc_1,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4a_desc_2,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4a_desc_3,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
         text: AppLocalizations.of(context)!.page_4a_desc_4,
-        style: style.copyWith(color: Colors.grey.shade700),
+        style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76)),
       ),
       TextSpan(
         text: AppLocalizations.of(context)!.page_4a_desc_5,
-        style: style.copyWith(color: Colors.grey.shade700),
+        style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76)),
       ),
       TextSpan(
         text: AppLocalizations.of(context)!.page_4a_desc_6,
         style: style.copyWith(
-            color: Colors.grey.shade700,
+            color: Color.fromARGB(255, 78, 76, 76),
             decoration: TextDecoration.underline,
             decorationThickness: 2),
         recognizer: TapGestureRecognizer()
@@ -296,31 +296,31 @@ class Strings {
       ),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_2,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_3,
           style: style.copyWith(color: Colors.black)),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_4,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_5,
           style: style.copyWith(color: Colors.black)),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_6,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_7,
           style: style.copyWith(color: Colors.black)),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_9,
-          style: style.copyWith(color: Colors.grey.shade700)),
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76))),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_10,
           style: style.copyWith(color: Colors.black)),
       TextSpan(
           text: AppLocalizations.of(context)!.page_4b_desc_11,
-          style: style.copyWith(color: Colors.grey.shade700))
+          style: style.copyWith(color: Color.fromARGB(255, 78, 76, 76)))
     ]));
   }
 
