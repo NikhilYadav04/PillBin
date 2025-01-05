@@ -72,6 +72,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                               strings.page_6_title_1,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
                                       4.634 * SizeConfig.heightMultiplier),
@@ -99,6 +100,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                               strings.page_6_title_2,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
                                       4.634 * SizeConfig.heightMultiplier),

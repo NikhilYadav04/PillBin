@@ -74,6 +74,7 @@ class _Page4AState extends State<Page4A> with SingleTickerProviderStateMixin {
                               strings.page_4a_title,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize: 4.1 * SizeConfig.heightMultiplier),
                             ),

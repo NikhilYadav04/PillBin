@@ -78,6 +78,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                               AppLocalizations.of(context)!.page_3a_title_1,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
                                       3.5 * SizeConfig.heightMultiplier),
@@ -105,6 +106,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                                AppLocalizations.of(context)!.page_3a_title_2,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:
                                       3.5 * SizeConfig.heightMultiplier),
@@ -131,6 +133,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             child: Text(
                                AppLocalizations.of(context)!.page_3a_title_3,
                               style: TextStyle(
+                                fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
                                   fontSize:

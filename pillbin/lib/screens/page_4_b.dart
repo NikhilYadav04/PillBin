@@ -77,6 +77,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 4.1 * SizeConfig.heightMultiplier),
                             ),
                           ),
@@ -101,6 +102,7 @@ class _Page4BState extends State<Page4B> with SingleTickerProviderStateMixin {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 4.1 * SizeConfig.heightMultiplier),
                             ),
                           ),

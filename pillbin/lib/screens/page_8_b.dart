@@ -78,6 +78,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                               AppLocalizations.of(context)!.page_8b_title_1,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize: 3.2 * SizeConfig.heightMultiplier),
                             ),
@@ -102,6 +103,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                                AppLocalizations.of(context)!.page_8b_title_2,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize: 3.2 * SizeConfig.heightMultiplier),
                             ),
@@ -126,6 +128,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
                                AppLocalizations.of(context)!.page_8b_title_3,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
                                   fontSize: 3.1 * SizeConfig.heightMultiplier),
                             ),
