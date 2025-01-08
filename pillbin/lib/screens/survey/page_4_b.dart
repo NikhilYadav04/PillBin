@@ -3,7 +3,7 @@ import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../styling/colors/colors.dart';
+import '../../styling/colors/colors.dart';
 
 class Page4B extends StatefulWidget {
   Page4B(

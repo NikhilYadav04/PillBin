@@ -13,6 +13,7 @@ class SizeConfig {
   static double heightMultiplier = 0;
   static double widthMultiplier = 0;
   static double height = _screenHeight;
+  static double screenWidth =0;
 
   void init(BoxConstraints constraints) {
     _screenWidth = constraints.maxWidth;
@@ -21,6 +22,7 @@ class SizeConfig {
     _blockSizeHorizontal = _screenWidth / 100;
     _blockSizeVertical = _screenHeight / 100;
 
+    screenWidth = _screenWidth;
     textMultiplier = _blockSizeVertical;
     imageSizeMultiplier = _blockSizeHorizontal;
     heightMultiplier = _blockSizeVertical;

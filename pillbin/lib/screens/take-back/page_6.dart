@@ -48,7 +48,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
       child: Column(
         children: [
           SizedBox(
-            height: 1.053 * SizeConfig.heightMultiplier,
+            height: 0.6 * SizeConfig.heightMultiplier,
           ),
           SizedBox(
             height: 15.800 * SizeConfig.heightMultiplier,
@@ -66,16 +66,19 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                           alignment: Alignment.topCenter,
                           heightFactor: 0.4,
                           child: Padding(
-                            padding: EdgeInsets.only(
-                                left: 6.320 * SizeConfig.heightMultiplier),
-                            child: Text(
-                              strings.page_6_title_1,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      4.634 * SizeConfig.heightMultiplier),
+                            padding: EdgeInsets.symmetric(horizontal: 14.2857*SizeConfig.widthMultiplier),
+                            // padding: EdgeInsets.only(
+                            //     left: 6.320 * SizeConfig.heightMultiplier),
+                            child: Center(
+                              child: Text(
+                                strings.page_6_title_1,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.634 * SizeConfig.heightMultiplier),
+                              ),
                             ),
                           ),
                         ),
@@ -95,15 +98,17 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                           heightFactor: 0.62,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 25.66 * SizeConfig.widthMultiplier),
-                            child: Text(
-                              strings.page_6_title_2,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      4.634 * SizeConfig.heightMultiplier),
+                                horizontal: 0),
+                            child: Center(
+                              child: Text(
+                                strings.page_6_title_2,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize:
+                                        4.634 * SizeConfig.heightMultiplier),
+                              ),
                             ),
                           ),
                         ),
@@ -115,7 +120,7 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 0,
+            height: 1.580061*SizeConfig.heightMultiplier,
           ),
           SizedBox(
             height: 37.921 * SizeConfig.heightMultiplier,

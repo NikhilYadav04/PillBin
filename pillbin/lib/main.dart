@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillbin/l10n/l10n.dart';
-import 'package:pillbin/screens/root_screen.dart';
+import 'package:pillbin/screens/root_screen/root_screen.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
 import 'package:pillbin/styling/strings/strings_2.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
