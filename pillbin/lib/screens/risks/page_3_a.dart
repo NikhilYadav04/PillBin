@@ -80,8 +80,7 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.5 * SizeConfig.heightMultiplier),
+                                  fontSize: 3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -103,13 +102,12 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                               AppLocalizations.of(context)!.page_3a_title_2,
+                              AppLocalizations.of(context)!.page_3a_title_2,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.5 * SizeConfig.heightMultiplier),
+                                  fontSize: 3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -131,13 +129,12 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.678 * SizeConfig.widthMultiplier),
                             child: Text(
-                               AppLocalizations.of(context)!.page_3a_title_3,
+                              AppLocalizations.of(context)!.page_3a_title_3,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                   fontFamily: "Hanken_Bold",
-                                  fontSize:
-                                      3.5 * SizeConfig.heightMultiplier),
+                                  fontSize: 3.5 * SizeConfig.heightMultiplier),
                             ),
                           ),
                         ),
@@ -156,14 +153,14 @@ class _Page3AState extends State<Page3A> with SingleTickerProviderStateMixin {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 strings.drug_risks,
+                  strings.drug_risks,
                   SizedBox(
                     height: 0 * SizeConfig.heightMultiplier,
                   ),
                   Image.asset(
                     Images.Image_3,
-                    width: 93.75*SizeConfig.widthMultiplier,
-                    height: 44.243*SizeConfig.heightMultiplier,
+                    width: 93.75 * SizeConfig.widthMultiplier,
+                    height: 44.243 * SizeConfig.heightMultiplier,
                   ),
                   SizedBox(
                     height: 1.8 * SizeConfig.heightMultiplier,
