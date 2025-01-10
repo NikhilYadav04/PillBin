@@ -87,19 +87,19 @@ class _Page6TabletState extends State<Page6Tablet>
             height: 6 * SizeConfig.heightMultiplier,
           ),
           Padding(
-
-            padding: EdgeInsets.symmetric(horizontal: 2*SizeConfig.widthMultiplier),
+            padding: EdgeInsets.symmetric(
+                horizontal: 2 * SizeConfig.widthMultiplier),
             child: Row(
               children: [
-                Card(strings.drug_title[0], strings.drug_desc[0]),
-                SizedBox(
-                  width: 2.678 * SizeConfig.widthMultiplier,
-                ),
-                Card(strings.drug_title[1], strings.drug_desc[1]),
-                SizedBox(
-                  width: 2.678 * SizeConfig.widthMultiplier,
-                ),
-                Card(strings.drug_title[2], strings.drug_desc[2])
+                Expanded(
+                    flex: 1,
+                    child: Card(strings.drug_title[0], strings.drug_desc[0])),
+                Expanded(
+                    flex: 1,
+                    child: Card(strings.drug_title[1], strings.drug_desc[1])),
+                Expanded(
+                    flex: 1,
+                    child: Card(strings.drug_title[2], strings.drug_desc[2]))
               ],
             ),
           )
@@ -129,8 +129,8 @@ Widget Card(String title, String desc) {
                   horizontal: 2.232 * SizeConfig.widthMultiplier),
               height: 15.373 * SizeConfig.heightMultiplier,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      6 * SizeConfig.heightMultiplier),
+                  borderRadius:
+                      BorderRadius.circular(6 * SizeConfig.heightMultiplier),
                   color: Colors.white),
               child: Center(
                 child: Text(
@@ -140,7 +140,7 @@ Widget Card(String title, String desc) {
                   style: TextStyle(
                       color: Colors.black,
                       fontFamily: "Hanken_Bold",
-                      fontSize: 3.8* SizeConfig.heightMultiplier,
+                      fontSize: 3.8 * SizeConfig.heightMultiplier,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -149,13 +149,13 @@ Widget Card(String title, String desc) {
               height: 2.8 * SizeConfig.heightMultiplier,
             ),
             Text(
-              maxLines: 11,
+              maxLines: 10,
               overflow: TextOverflow.ellipsis,
               desc,
               style: TextStyle(
                   color: Color.fromARGB(255, 50, 49, 49),
                   fontFamily: "Libre_Regular",
-                  fontSize: 2.7 * SizeConfig.heightMultiplier,
+                  fontSize: 2.58 * SizeConfig.heightMultiplier,
                   fontWeight: FontWeight.bold),
             )
           ],
