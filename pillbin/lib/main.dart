@@ -20,6 +20,7 @@ void main() async {
     DeviceOrientation.landscapeRight,
   ]);
 
+
   runApp(MyApp());
 }
 

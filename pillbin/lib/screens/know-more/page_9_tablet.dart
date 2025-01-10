@@ -143,131 +143,136 @@ class _Page9TabletState extends State<Page9Tablet>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //* NGO's Links
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 4.8 * SizeConfig.heightMultiplier),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          AppLocalizations.of(context)!.page_9_NGO_text,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Hanken_Bold",
-                            fontSize: 4 * SizeConfig.heightMultiplier,
-                            fontWeight: FontWeight.bold,
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 4.8 * SizeConfig.heightMultiplier),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            AppLocalizations.of(context)!.page_9_NGO_text,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Hanken_Bold",
+                              fontSize: 4 * SizeConfig.heightMultiplier,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 1.4 * SizeConfig.heightMultiplier,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 4.8 * SizeConfig.heightMultiplier),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _urlLauncher(
-                                AppLocalizations.of(context)!.page_9_NGO_text_1,
-                                "https://dc.kerala.gov.in/en/the-proud-project-for-the-removal-of-unused-and-date-expired-medicines-from-the-market-mou-signed-between-the-managing-director-clean-kerala-company-and-the-drugs-controller-of-kerala-on-26-08/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                            _urlLauncher(
-                                AppLocalizations.of(context)!.page_9_NGO_text_2,
-                                "https://www.instagram.com/sharemeds/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                            _urlLauncher(
-                                AppLocalizations.of(context)!.page_9_NGO_text_3,
-                                "https://www.medicinebaba.in/index.php",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                            _urlLauncher(
-                                AppLocalizations.of(context)!.page_9_NGO_text_4,
-                                "https://www.udayfoundation.org/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                          ],
+                      SizedBox(
+                        height: 1.4 * SizeConfig.heightMultiplier,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 4.8 * SizeConfig.heightMultiplier),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!.page_9_NGO_text_1,
+                                  "https://dc.kerala.gov.in/en/the-proud-project-for-the-removal-of-unused-and-date-expired-medicines-from-the-market-mou-signed-between-the-managing-director-clean-kerala-company-and-the-drugs-controller-of-kerala-on-26-08/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!.page_9_NGO_text_2,
+                                  "https://www.instagram.com/sharemeds/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!.page_9_NGO_text_3,
+                                  "https://www.medicinebaba.in/index.php",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!.page_9_NGO_text_4,
+                                  "https://www.udayfoundation.org/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
 
                 //* Bio-Waste Links
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          right: 2 * SizeConfig.heightMultiplier),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Text(
-                          AppLocalizations.of(context)!.page_9_Company_text,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Hanken_Bold",
-                            fontSize: 4.1 * SizeConfig.heightMultiplier,
-                            fontWeight: FontWeight.bold,
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            right: 2 * SizeConfig.heightMultiplier),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            AppLocalizations.of(context)!.page_9_Company_text,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Hanken_Bold",
+                              fontSize: 4 * SizeConfig.heightMultiplier,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 1.4 * SizeConfig.heightMultiplier,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          right: 1 * SizeConfig.heightMultiplier),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _urlLauncher(
-                                AppLocalizations.of(context)!
-                                    .page_9_Company_text_1,
-                                "https://bangaloreinternationalcentre.org/bcause/nonprofits/environmental-synergies-in-development/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                            _urlLauncher(
-                                AppLocalizations.of(context)!
-                                    .page_9_Company_text_2,
-                                "https://safewaternetwork.org/our-work/india/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                            _urlLauncher(
-                                AppLocalizations.of(context)!
-                                    .page_9_Company_text_3,
-                                "https://ramky.com/",
-                                Colors.black),
-                            SizedBox(
-                              height: 1.053 * SizeConfig.heightMultiplier,
-                            ),
-                          ],
+                      SizedBox(
+                        height: 1.4 * SizeConfig.heightMultiplier,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            right: 1 * SizeConfig.heightMultiplier),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _urlLauncher(
+                                  "• Environment Synergies in Development (Ensyde)",
+                                  "https://bangaloreinternationalcentre.org/bcause/nonprofits/environmental-synergies-in-development/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!
+                                      .page_9_Company_text_2,
+                                  "https://safewaternetwork.org/our-work/india/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                              _urlLauncher(
+                                  AppLocalizations.of(context)!
+                                      .page_9_Company_text_3,
+                                  "https://ramky.com/",
+                                  Colors.black),
+                              SizedBox(
+                                height: 1.053 * SizeConfig.heightMultiplier,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

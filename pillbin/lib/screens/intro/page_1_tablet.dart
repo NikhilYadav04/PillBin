@@ -97,23 +97,29 @@ class _Page1TabletState extends State<Page1Tablet>
                             SizedBox(
                               height: 5 * SizeConfig.heightMultiplier,
                             ),
-                            Text(
-                              maxLines: 2,
-                              AppLocalizations.of(context)!
-                                  .page_1_header_1_tablet,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Medium",
-                                  fontSize: 7.8 * SizeConfig.heightMultiplier),
+                            FittedBox(
+                              child: Text(
+                                // maxLines: 1,
+                                // overflow: TextOverflow.ellipsis,
+                                AppLocalizations.of(context)!
+                                    .page_1_header_1_tablet,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Medium",
+                                    fontSize: 7.8 * SizeConfig.heightMultiplier),
+                              ),
                             ),
-                            Text(
-                              maxLines: 2,
-                              AppLocalizations.of(context)!
-                                  .page_1_header_2_tablet,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Hanken_Bold",
-                                  fontSize: 7.8 * SizeConfig.heightMultiplier),
+                            FittedBox(
+                              child: Text(
+                                // maxLines: 1,
+                                // overflow: TextOverflow.ellipsis,
+                                AppLocalizations.of(context)!
+                                    .page_1_header_2_tablet,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Hanken_Bold",
+                                    fontSize: 7.8 * SizeConfig.heightMultiplier),
+                              ),
                             ),
                             SizedBox(
                               height: 5.5 * SizeConfig.heightMultiplier,
@@ -205,14 +211,16 @@ class _Page1TabletState extends State<Page1Tablet>
           color: const Color.fromARGB(255, 235, 229, 229),
         ),
         child: Center(
-          child: Text(
-            maxLines: 1,
-            text,
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: "Hanken_Medium",
-              fontSize: 2.8 * SizeConfig.heightMultiplier,
-              decoration: TextDecoration.underline,
+          child: FittedBox(
+            child: Text(
+              maxLines: 1,
+              text,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Hanken_Medium",
+                fontSize: 2.8 * SizeConfig.heightMultiplier,
+                decoration: TextDecoration.underline,
+              ),
             ),
           ),
         ),

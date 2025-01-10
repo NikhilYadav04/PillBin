@@ -69,14 +69,16 @@ class _Page8TabletState extends State<Page8Tablet>
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
                                         3.5 * SizeConfig.widthMultiplier),
-                                child: Text(
-                                  "${AppLocalizations.of(context)!.page_8a_title_1} ${AppLocalizations.of(context)!.page_8a_title_2} ${AppLocalizations.of(context)!.page_8a_title_3}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Hanken_Bold",
-                                      fontSize:
-                                          4.2 * SizeConfig.heightMultiplier),
+                                child: FittedBox(
+                                  child: Text(
+                                    "${AppLocalizations.of(context)!.page_8a_title_1} ${AppLocalizations.of(context)!.page_8a_title_2} ${AppLocalizations.of(context)!.page_8a_title_3}",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Hanken_Bold",
+                                        fontSize:
+                                            4.2 * SizeConfig.heightMultiplier),
+                                  ),
                                 ),
                               ),
                             ),
@@ -96,9 +98,9 @@ class _Page8TabletState extends State<Page8Tablet>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _review(strings.view_student_1,470),
-                _review(strings.view_student_2,470),
-                _review(strings.view_student_3,470),
+                Expanded(flex: 1, child: _review(strings.view_student_1, 470)),
+                Expanded(flex: 1, child: _review(strings.view_student_2, 470)),
+                Expanded(flex: 1, child: _review(strings.view_student_3, 470)),
               ],
             ),
           ),
@@ -129,14 +131,16 @@ class _Page8TabletState extends State<Page8Tablet>
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
                                         3.5 * SizeConfig.widthMultiplier),
-                                child: Text(
-                                  "${AppLocalizations.of(context)!.page_8b_title_1} ${AppLocalizations.of(context)!.page_8b_title_2} ${AppLocalizations.of(context)!.page_8b_title_3}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Hanken_Bold",
-                                      fontSize:
-                                          4.2 * SizeConfig.heightMultiplier),
+                                child: FittedBox(
+                                  child: Text(
+                                    "${AppLocalizations.of(context)!.page_8b_title_1} ${AppLocalizations.of(context)!.page_8b_title_2} ${AppLocalizations.of(context)!.page_8b_title_3}",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Hanken_Bold",
+                                        fontSize:
+                                            4.2 * SizeConfig.heightMultiplier),
+                                  ),
                                 ),
                               ),
                             ),
@@ -156,9 +160,9 @@ class _Page8TabletState extends State<Page8Tablet>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _review(strings.view_doctor_1,240),
-                _review(strings.view_doctor_2,240),
-                _review(strings.view_doctor_3,240),
+                Expanded(flex: 1, child: _review(strings.view_doctor_1, 240)),
+                Expanded(flex: 1, child: _review(strings.view_doctor_2, 240)),
+                Expanded(flex: 1, child: _review(strings.view_doctor_3, 240)),
               ],
             ),
           ),
@@ -168,14 +172,15 @@ class _Page8TabletState extends State<Page8Tablet>
   }
 }
 
-Widget _review(String text,double height) {
+Widget _review(String text, double height) {
   return Container(
     decoration: BoxDecoration(
         // border: Border.all(color: Colors.black)
         ),
-    height:height,
-    width: 395,
-    padding: EdgeInsets.symmetric(horizontal: 18),
+    height: height,
+    width: 52.526 * SizeConfig.heightMultiplier,
+    padding:
+        EdgeInsets.symmetric(horizontal: 1.40625 * SizeConfig.widthMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

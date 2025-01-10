@@ -69,15 +69,17 @@ class _Page6State extends State<Page6> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(horizontal: 14.2857*SizeConfig.widthMultiplier),
                             // padding: EdgeInsets.only(
                             //     left: 6.320 * SizeConfig.heightMultiplier),
-                            child: Center(
-                              child: Text(
-                                strings.page_6_title_1,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Hanken_Bold",
-                                    fontSize:
-                                        4.634 * SizeConfig.heightMultiplier),
+                            child: FittedBox(
+                              child: Center(
+                                child: Text(
+                                  strings.page_6_title_1,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Hanken_Bold",
+                                      fontSize:
+                                          4.634 * SizeConfig.heightMultiplier),
+                                ),
                               ),
                             ),
                           ),

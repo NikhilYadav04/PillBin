@@ -126,19 +126,19 @@ class _Page5TabletState extends State<Page5Tablet>
             padding:EdgeInsets.only(left: 7*SizeConfig.heightMultiplier),
             child: Row(
               children: [
-                Card(strings.rules_strict[0], strings.rules_desc[0]),
+                Card(strings.rules_strict[0], strings.rules_desc[0],9),
                 SizedBox(
                   width: 2.678 * SizeConfig.widthMultiplier,
                 ),
-                Card(strings.rules_strict[1], strings.rules_desc[1]),
+                Card(strings.rules_strict[1], strings.rules_desc[1],9),
                 SizedBox(
                   width: 2.678 * SizeConfig.widthMultiplier,
                 ),
-                Card(strings.rules_strict[2], strings.rules_desc[2]),
+                Card(strings.rules_strict[2], strings.rules_desc[2],9),
                 SizedBox(
                   width: 2.678 * SizeConfig.widthMultiplier,
                 ),
-                Card(strings.rules_strict[3], strings.rules_desc[3]),
+                Card(strings.rules_strict[3], strings.rules_desc[3],9),
                 SizedBox(
                   width: 2.678 * SizeConfig.widthMultiplier,
                 ),
@@ -151,7 +151,7 @@ class _Page5TabletState extends State<Page5Tablet>
   }
 }
 
-Widget Card(String title, String desc) {
+Widget Card(String title, String desc,int maxLines) {
   return Column(
     children: [
       Container(
@@ -178,7 +178,7 @@ Widget Card(String title, String desc) {
               height: 2 * SizeConfig.heightMultiplier,
             ),
             Text(
-              maxLines: 10,
+              maxLines: maxLines,
               overflow: TextOverflow.ellipsis,
               desc,
               style: TextStyle(

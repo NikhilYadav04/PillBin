@@ -46,32 +46,32 @@ class _RootScreenTabletState extends State<RootScreenTablet>
                 controller: _tabController,
                 tabs: [
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_1, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_1, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_2, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_2, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_3_tablet, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_3_tablet, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_4, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_4, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_5, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_5, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_6_tablet, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_6_tablet, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_7_tablet, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_7_tablet, style: style)),
                   ),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_8_tablet, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_8_tablet, style: style)),
                   ),
-                  Tab(child: Text(AppLocalizations.of(context)!.drawer_9, style: style)),
+                  Tab(child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_9, style: style))),
                   Tab(
-                    child: Text(AppLocalizations.of(context)!.drawer_10_tablet, style: style),
+                    child: FittedBox(child: Text(AppLocalizations.of(context)!.drawer_10_tablet, style: style)),
                   )
                 ]),
           ),

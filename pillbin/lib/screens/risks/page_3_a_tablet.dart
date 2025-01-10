@@ -165,7 +165,7 @@ class _Page3ATabletState extends State<Page3ATablet>
                                   opacity: _opacityAnimation.value,
                                   child: Center(
                                     child: Text(
-                                      "  ${AppLocalizations.of(context)!.page_4_title_1} ${AppLocalizations.of(context)!.page_4_title_2}${AppLocalizations.of(context)!.page_4_title_3}",
+                                      "  ${AppLocalizations.of(context)!.page_4_title_1} ${AppLocalizations.of(context)!.page_4_title_2}",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
