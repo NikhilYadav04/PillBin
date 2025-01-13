@@ -65,14 +65,16 @@ class _Page5TabletState extends State<Page5Tablet>
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 5 * SizeConfig.widthMultiplier),
-                                child: Text(
-                                  "${AppLocalizations.of(context)!.page_5_title_1} ${AppLocalizations.of(context)!.page_5_title_2}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Hanken_Bold",
-                                      fontSize:
-                                          6 * SizeConfig.heightMultiplier),
+                                child: FittedBox(
+                                  child: Text(
+                                    "${AppLocalizations.of(context)!.page_5_title_1} ${AppLocalizations.of(context)!.page_5_title_2}",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Hanken_Bold",
+                                        fontSize:
+                                            6 * SizeConfig.heightMultiplier),
+                                  ),
                                 ),
                               ),
                             ),
@@ -103,14 +105,16 @@ class _Page5TabletState extends State<Page5Tablet>
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
                                         4.6 * SizeConfig.widthMultiplier),
-                                child: Text(
-                                  "${AppLocalizations.of(context)!.page_5_title_3} ${AppLocalizations.of(context)!.page_5_title_4}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Hanken_Bold",
-                                      fontSize:
-                                          6 * SizeConfig.heightMultiplier),
+                                child: FittedBox(
+                                  child: Text(
+                                    "${AppLocalizations.of(context)!.page_5_title_3} ${AppLocalizations.of(context)!.page_5_title_4}",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Hanken_Bold",
+                                        fontSize:
+                                            6 * SizeConfig.heightMultiplier),
+                                  ),
                                 ),
                               ),
                             ),
@@ -125,44 +129,30 @@ class _Page5TabletState extends State<Page5Tablet>
             height: 6 * SizeConfig.heightMultiplier,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 7 * SizeConfig.heightMultiplier),
+              padding: EdgeInsets.symmetric(
+                horizontal: 1 * SizeConfig.widthMultiplier),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   flex: 1,
-                  child: Row(
-                    children: [
-                      Card(strings.rules_strict[0], strings.rules_desc[0], 9),
-                    ],
-                  ),
+                  child: Card(strings.rules_strict[0], strings.rules_desc[0], 12),
                 ),
                 Expanded(
                   flex: 1,
-                  child: Row(
-                    children: [
-                      Card(strings.rules_strict[1], strings.rules_desc[1], 9),
-                    ],
-                  ),
+                  child:  Card(strings.rules_strict[1], strings.rules_desc[1], 12),
                 ),
                 Expanded(
                   flex: 1,
-                  child: Row(
-                    children: [
-                      Card(strings.rules_strict[2], strings.rules_desc[2], 9),
-                    ],
-                  ),
+                  child: Card(strings.rules_strict[2], strings.rules_desc[2], 9),
                 ),
                 Expanded(
                   flex: 1,
-                  child: Row(
-                    children: [
-                      Card(strings.rules_strict[3], strings.rules_desc[3], 9),
-                    ],
-                  ),
+                  child:  Card(strings.rules_strict[3], strings.rules_desc[3], 12),
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -170,21 +160,23 @@ class _Page5TabletState extends State<Page5Tablet>
 }
 
 Widget Card(String title, String desc, int maxLines) {
-  return Column(
-    children: [
-      Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: 1.785 * SizeConfig.widthMultiplier,
-            vertical: 1.6 * SizeConfig.heightMultiplier),
-        height: 55.00 * SizeConfig.heightMultiplier,
-        width: 21 * SizeConfig.widthMultiplier,
-        decoration: BoxDecoration(
-            borderRadius:
-                BorderRadius.circular(1.474 * SizeConfig.heightMultiplier),
-            color: Colours.Light_Blue),
-        child: Column(
-          children: [
-            Text(
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: 0.625*SizeConfig.widthMultiplier),
+    child: Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: 1.785 * SizeConfig.widthMultiplier,
+          vertical: 1.6 * SizeConfig.heightMultiplier),
+      height: 55.00 * SizeConfig.heightMultiplier,
+      width: 23 * SizeConfig.widthMultiplier,
+      decoration: BoxDecoration(
+          borderRadius:
+              BorderRadius.circular(1.474 * SizeConfig.heightMultiplier),
+          color: Colours.Light_Blue),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FittedBox(
+            child: Text(
               title,
               style: TextStyle(
                   color: Colors.black,
@@ -192,25 +184,22 @@ Widget Card(String title, String desc, int maxLines) {
                   fontSize: 3.3 * SizeConfig.heightMultiplier,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 2 * SizeConfig.heightMultiplier,
-            ),
-            Text(
-              maxLines: maxLines,
-              overflow: TextOverflow.ellipsis,
-              desc,
-              style: TextStyle(
-                  color: Colors.grey.shade900,
-                  fontFamily: "Libre_Regular",
-                  fontSize: 2.3 * SizeConfig.heightMultiplier,
-                  fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 2 * SizeConfig.heightMultiplier,
+          ),
+          Text(
+            maxLines: maxLines,
+            overflow: TextOverflow.ellipsis,
+            desc,
+            style: TextStyle(
+                color: Colors.grey.shade900,
+                fontFamily: "Libre_Regular",
+                fontSize: 2.3 * SizeConfig.heightMultiplier,
+                fontWeight: FontWeight.bold),
+          )
+        ],
       ),
-      SizedBox(
-        height: 1.580 * SizeConfig.heightMultiplier,
-      )
-    ],
+    ),
   );
 }

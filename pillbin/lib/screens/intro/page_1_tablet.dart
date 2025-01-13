@@ -170,7 +170,7 @@ class _Page1TabletState extends State<Page1Tablet>
                                                         .setLanguage("hi");
                                                   }),
                                                   SizedBox(
-                                                    height: 1.85 *
+                                                    height: 1.7*
                                                         SizeConfig
                                                             .heightMultiplier,
                                                   ),

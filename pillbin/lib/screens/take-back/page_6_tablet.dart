@@ -155,7 +155,7 @@ Widget Card(String title, String desc) {
               style: TextStyle(
                   color: Color.fromARGB(255, 50, 49, 49),
                   fontFamily: "Libre_Regular",
-                  fontSize: 2.58 * SizeConfig.heightMultiplier,
+                  fontSize: 2.45 * SizeConfig.heightMultiplier,
                   fontWeight: FontWeight.bold),
             )
           ],

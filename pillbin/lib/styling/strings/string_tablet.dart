@@ -41,10 +41,10 @@ class StringsTablet {
 
   List<String> get rules_strict {
     return [
-      AppLocalizations.of(context)!.page_5_rules_strict_1,
-      AppLocalizations.of(context)!.page_5_rules_strict_2,
-      AppLocalizations.of(context)!.page_5_rules_strict_3,
-      AppLocalizations.of(context)!.page_5_rules_strict_4,
+      AppLocalizations.of(context)!.page_5_rules_strict_1_tablet,
+      AppLocalizations.of(context)!.page_5_rules_strict_2_tablet,
+      AppLocalizations.of(context)!.page_5_rules_strict_3_tablet,
+      AppLocalizations.of(context)!.page_5_rules_strict_4_tablet,
     ];
   }
 

@@ -90,7 +90,7 @@ class _Page8TabletState extends State<Page8Tablet>
             ),
           ),
           SizedBox(
-            height: 6 * SizeConfig.heightMultiplier,
+            height: 4 * SizeConfig.heightMultiplier,
           ),
           Padding(
             padding: EdgeInsets.symmetric(
@@ -98,9 +98,9 @@ class _Page8TabletState extends State<Page8Tablet>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(flex: 1, child: _review(strings.view_student_1, 470)),
-                Expanded(flex: 1, child: _review(strings.view_student_2, 470)),
-                Expanded(flex: 1, child: _review(strings.view_student_3, 470)),
+                Expanded(flex: 1, child: _review(strings.view_student_1, 62.5*SizeConfig.heightMultiplier)),
+                Expanded(flex: 1, child: _review(strings.view_student_2, 62.5*SizeConfig.heightMultiplier)),
+                Expanded(flex: 1, child: _review(strings.view_student_3, 62.5*SizeConfig.heightMultiplier)),
               ],
             ),
           ),
@@ -158,11 +158,11 @@ class _Page8TabletState extends State<Page8Tablet>
             padding: EdgeInsets.symmetric(
                 horizontal: 2.1 * SizeConfig.widthMultiplier),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(flex: 1, child: _review(strings.view_doctor_1, 240)),
-                Expanded(flex: 1, child: _review(strings.view_doctor_2, 240)),
-                Expanded(flex: 1, child: _review(strings.view_doctor_3, 240)),
+                Expanded(flex: 1, child: _review(strings.view_doctor_1, 31.914*SizeConfig.heightMultiplier)),
+                Expanded(flex: 1, child: _review(strings.view_doctor_2,31.914*SizeConfig.heightMultiplier)),
+                Expanded(flex: 1, child: _review(strings.view_doctor_3, 31.914*SizeConfig.heightMultiplier)),
               ],
             ),
           ),
@@ -178,28 +178,28 @@ Widget _review(String text, double height) {
         // border: Border.all(color: Colors.black)
         ),
     height: height,
-    width: 52.526 * SizeConfig.heightMultiplier,
+    width: 392.96,
     padding:
         EdgeInsets.symmetric(horizontal: 1.40625 * SizeConfig.widthMultiplier),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 38 * SizeConfig.heightMultiplier),
+          padding: EdgeInsets.only(bottom: 1.5625 * SizeConfig.widthMultiplier),
           child: Image.asset(
             Images.Comma,
-            height: 7.373 * SizeConfig.heightMultiplier,
-            width: 15.625 * SizeConfig.widthMultiplier,
+            height: 4.68758 * SizeConfig.widthMultiplier,
+            width: 7.97872 * SizeConfig.heightMultiplier,
           ),
         ),
-        SizedBox(
-          height: 2.8 * SizeConfig.heightMultiplier,
-        ),
-        Text(text,
+        Text(
+            maxLines: 14,
+            overflow: TextOverflow.ellipsis,
+            text,
             style: TextStyle(
                 color: Colors.grey.shade700,
                 fontWeight: FontWeight.bold,
-                fontSize: 2.45 * SizeConfig.heightMultiplier,
+                fontSize: 2.4 * SizeConfig.heightMultiplier,
                 fontFamily: "Hanken_Medium")),
       ],
     ),
