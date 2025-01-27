@@ -58,6 +58,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
           SizedBox(
             height: 2.5 * SizeConfig.heightMultiplier,
           ),
+          //* Title
           SizedBox(
             height: 17.323 * SizeConfig.heightMultiplier,
             child: Stack(
@@ -141,6 +142,7 @@ class _Page8BState extends State<Page8B> with SingleTickerProviderStateMixin {
               ],
             ),
           ),
+          //* Review Text
           SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
           _review(strings.view_doctor_1),
           SizedBox(

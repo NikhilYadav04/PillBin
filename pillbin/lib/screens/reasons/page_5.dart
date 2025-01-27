@@ -255,7 +255,7 @@ Widget Card(String title, String desc) {
               height: 1.264 * SizeConfig.heightMultiplier,
             ),
             Text(
-              maxLines: 10,
+              maxLines: 11,
               overflow: TextOverflow.ellipsis,
               desc,
               style: TextStyle(
