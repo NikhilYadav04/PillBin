@@ -1,8 +1,8 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get.dart';
+import 'package:pillbin/helper/keys.dart';
 import 'package:pillbin/l10n/l10n.dart';
 import 'package:pillbin/screens/root_screen/root_screen.dart';
 import 'package:pillbin/screens/root_screen/root_screen_tablet.dart';
@@ -14,6 +14,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Gemini.init(apiKey: Keys.apiKey);
+
   // Set preferred orientation globally for tablets
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -22,8 +24,8 @@ void main() async {
     DeviceOrientation.landscapeRight,
   ]);
 
-  runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
-  //runApp(MyApp());
+  //runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
       }
 
       return GetMaterialApp(
+        theme: ThemeData(primaryColor: Colors.blue, fontFamily: "Glacial_Bold"),
         supportedLocales: L10n.all,
         locale: Strings2.app_locale,
         localizationsDelegates: const [

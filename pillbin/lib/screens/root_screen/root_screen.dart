@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillbin/controller/GetX_dropdown.dart';
+import 'package:pillbin/screens/chatbot/chatbot_screen.dart';
 import 'package:pillbin/screens/intro/page_1.dart';
 import 'package:pillbin/screens/about_us/page_2.dart';
 import 'package:pillbin/screens/drug_disposal/page_3.dart';
@@ -92,7 +93,7 @@ class _RootScreenState extends State<RootScreen> {
                   },
                   child: Row(
                     children: [
-                      _text("Select Language ",(){}),
+                      _text("Select Language ", () {}),
                       _dropDownController.isExpanded.isTrue
                           ? Icon(
                               Icons.arrow_drop_up,
@@ -153,10 +154,15 @@ class _RootScreenState extends State<RootScreen> {
       ),
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: Container(),
         backgroundColor: Colours.Very_Light_Blue,
         toolbarHeight: 8.373 * SizeConfig.heightMultiplier,
         actions: [
+          InkWell(
+            onTap: (){
+              Get.to(()=>ChatbotScreen(),transition: Transition.upToDown);
+            },
+            child: Image.asset("assets/chatbot.png",height: 50,width: 50,)),
+          SizedBox(width:2,),
           IconButton(
             icon: Icon(
               Icons.menu,
