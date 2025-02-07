@@ -86,68 +86,28 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           inputMaxLines: 5,
           inputTextStyle: TextStyle(fontFamily: "Glacial_Bold"),
           trailing: [
-            CircleAvatar(
-              radius: 2.106748*SizeConfig.heightMultiplier,
-              backgroundColor: Colours.Light_Blue,
-              child: IconButton(
-                icon: Icon(
-                  Icons.send,
-                  size: 2.52809*SizeConfig.heightMultiplier,
-                ),
-                color: Colors.white,
-                onPressed: () {
-                  if (_textEditingController.text.trim().isNotEmpty) {
-                    _sendMessages(ChatMessage(
-                      text: _textEditingController.text.trim(),
-                      user: currentUser,
-                      createdAt: DateTime.now(),
-                    ));
-                    _textEditingController.clear();
-                  }
-                },
+            IconButton(
+              icon: Icon(
+                Icons.send,
+                size: 3.42809 * SizeConfig.heightMultiplier,
               ),
-            )
+              color: Colors.blue,
+              onPressed: () {
+                if (_textEditingController.text.trim().isNotEmpty) {
+                  _sendMessages(ChatMessage(
+                    text: _textEditingController.text.trim(),
+                    user: currentUser,
+                    createdAt: DateTime.now(),
+                  ));
+                  _textEditingController.clear();
+                }
+              },
+            ),
           ],
         ),
-        
         typingUsers:
             _isGeminiTyping ? [geminiUser] : [], //* Show only Gemini typing
         messageOptions: MessageOptions(
-          // messageTextBuilder: (message, previousMessage, nextMessage) {
-          //   bool isCurrentUser = message.user.id == currentUser.id;
-
-          //   return Container(
-          //     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-          //     decoration: BoxDecoration(
-          //       color: isCurrentUser
-          //           ? Colours.Light_Blue
-          //           : Color.fromARGB(255, 223, 221, 221),
-          //       borderRadius: BorderRadius.circular(12),
-          //       boxShadow: [
-          //         BoxShadow(
-          //           color: Colors.grey.withOpacity(0.2),
-          //           spreadRadius: 1,
-          //           blurRadius: 4,
-          //           offset: Offset(0, 2),
-          //         ),
-          //       ],
-          //     ),
-          //     constraints: BoxConstraints(
-          //       minHeight: 40,
-          //       maxWidth: 280,
-          //     ),
-          //     child: Text(
-          //       message.text,
-          //       style: TextStyle(
-          //         fontSize: 17,
-          //         fontFamily: "Glacial_Regular",
-          //         fontWeight: FontWeight
-          //             .bold, // Slightly lighter for better readability
-          //         color: isCurrentUser ? Colors.black : Colors.black87,
-          //       ),
-          //     ),
-          //   );
-          // },
           timeTextColor: Colors.black,
           currentUserContainerColor: Colours.Light_Blue,
           currentUserTimeTextColor: Colors.black,
@@ -167,8 +127,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     });
 
     try {
-      String question = "${chatMessage.text} Answer Now";
-      ;
+      String question = chatMessage.text;
+      print("Prompt is: $question");
       String fullResponse = "";
       const maxAttempts = 3;
       int attempt = 0;
@@ -181,7 +141,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           }
 
           final stream = gemini.streamGenerateContent(question);
-
           await for (final event in stream) {
             String newContent = event.content?.parts?.fold(
                   "",
@@ -214,25 +173,19 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
             throw Exception("No response received from Gemini.");
           }
 
-          break; // Stream completed successfully
+          break; // Exit the loop if the stream completes successfully
         } catch (e) {
           print("Attempt ${attempt + 1} error: $e");
+          attempt++;
 
-          if (e.toString().contains("503")) {
-            attempt++;
-
-            if (attempt == maxAttempts) {
-              _showErrorMessage(
-                  "Service is currently unavailable. Please try again later.");
-              return;
-            }
-
-            await Future.delayed(Duration(seconds: attempt * 2));
-            continue;
+          if (attempt == maxAttempts) {
+            _showErrorMessage(
+                "Service is currently unavailable. Please try again later.");
+            return;
           }
 
-          _showErrorMessage("An error occurred. Please try again.");
-          return;
+          // Exponential backoff before retrying
+          await Future.delayed(Duration(seconds: attempt * 2));
         }
       }
     } catch (e) {
