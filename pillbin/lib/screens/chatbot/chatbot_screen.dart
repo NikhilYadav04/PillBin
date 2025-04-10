@@ -1,12 +1,18 @@
-import 'dart:io';
-import 'dart:typed_data';
+import 'dart:convert';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pillbin/controller/GetX_report.dart';
+import 'package:pillbin/services/reportService.dart';
 import 'package:pillbin/styling/colors/colors.dart';
 import 'package:pillbin/styling/sizeconfig/sizeconfig.dart';
+import 'package:http/http.dart' as http;
+import 'package:pillbin/styling/widgets/chatbot_widgte.dart';
+import 'package:pillbin/styling/widgets/toast.dart';
 
 class ChatbotScreen extends StatefulWidget {
   const ChatbotScreen({super.key});
@@ -20,6 +26,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   bool _isGeminiTyping = false; // Track Gemini typing
   final Gemini gemini = Gemini.instance;
   final TextEditingController _textEditingController = TextEditingController();
+  final GetxReport controller = Get.put(GetxReport());
+  final ReportService reportService =
+      ReportService(baseURL: dotenv.get("PC_IP"));
 
   List<ChatMessage> messages = [];
 
@@ -61,16 +70,26 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               ),
               child: DashChatUI(),
             ),
-
-            //* Loader
-            // if (_isLoading)
-            //   Center(
-            //     child: CircularProgressIndicator(
-            //       color: Colors.blue,
-            //     ),
-            //   ),
           ],
         ),
+
+        //* persistent bottom bar
+        persistentFooterAlignment: AlignmentDirectional.bottomCenter,
+        backgroundColor: Color.fromARGB(255, 193, 223, 248),
+        persistentFooterButtons: [
+          Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 1.5625 * SizeConfig.widthMultiplier,
+                  vertical: 0.84269 * SizeConfig.heightMultiplier),
+              child: Text(
+                "Found something inappropriate? Tap 'Report' below any message to help us improve by flagging offensive or harmful content.",
+                style: TextStyle(
+                  fontFamily: "Hanken_Medium",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 1.9 * SizeConfig.heightMultiplier,
+                ),
+              ))
+        ],
       ),
     );
   }
@@ -108,6 +127,59 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         typingUsers:
             _isGeminiTyping ? [geminiUser] : [], //* Show only Gemini typing
         messageOptions: MessageOptions(
+          textBeforeMedia: true,
+          messageTextBuilder: (message, previousMessage, nextMessage) {
+            return message.user.id == currentUser.id
+                ? SelectableText(
+                    message.text, // The message text
+                    style: TextStyle(
+                      color: message.user.id == currentUser.id
+                          ? Colors.black // Current user text color
+                          : Colors.black, // Other users text color
+                    ),
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SelectableText(
+                        message.text,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: "Glacial_Bold",
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4.213484 * SizeConfig.heightMultiplier,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return reportCard(controller);
+                                });
+                            //* report content
+                            toastSuccessSlide(
+                                context, "Response Reported Successfully");
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  0.84269 * SizeConfig.heightMultiplier),
+                            ),
+                          ),
+                          child: Text(
+                            "Report Response",
+                            style: TextStyle(
+                              fontSize: 1.47471 * SizeConfig.heightMultiplier,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+          },
           timeTextColor: Colors.black,
           currentUserContainerColor: Colours.Light_Blue,
           currentUserTimeTextColor: Colors.black,
@@ -127,12 +199,25 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     });
 
     try {
-      String question = chatMessage.text;
+      String question = "${chatMessage.text} . Give answer in 200 words";
       print("Prompt is: $question");
-      String fullResponse = "";
       const maxAttempts = 3;
       int attempt = 0;
+
+      // //* check the question is valid
+      // final response = await reportService.checkUserAskedQuestion(question);
+
+      // if (response != "Success") {
+      //   toastErrorSlide(context, response);
+      //   setState(() {
+      //     _isLoading = false;
+      //     _isGeminiTyping = false;
+      //   });
+      //   return;
+      // }
+
       bool receivedResponse = false;
+      String fullResponse = "";
 
       while (attempt < maxAttempts) {
         try {
@@ -140,40 +225,47 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
             _showRetryMessage(attempt);
           }
 
-          final stream = gemini.streamGenerateContent(question);
-          await for (final event in stream) {
-            String newContent = event.content?.parts?.fold(
-                  "",
-                  (previous, current) => "$previous ${current.text}",
-                ) ??
-                "";
+          print("Making API call to localhost...");
+          final IP = await dotenv.get('PC_IP');
+          final response = await http.post(
+            Uri.parse("https://gemini-server-2.onrender.com/generate"),
+            headers: {"Content-Type": "application/json"},
+            body: jsonEncode({"prompt": question}),
+          );
 
-            if (newContent.isNotEmpty) {
-              receivedResponse = true; // ✅ Flag to track response received
-              fullResponse += newContent;
-
-              if (messages.isNotEmpty && messages[0].user.id == geminiUser.id) {
-                messages.removeAt(0);
-              }
-
-              messages = [
-                ChatMessage(
-                  user: geminiUser,
-                  createdAt: DateTime.now(),
-                  text: fullResponse,
-                ),
-                ...messages
-              ];
-
-              setState(() {});
-            }
+          if (response.statusCode == 200) {
+            final data = jsonDecode(response.body);
+            fullResponse = data["response"] ?? "";
+            receivedResponse = fullResponse.isNotEmpty;
+          } else {
+            throw Exception("Invalid response: ${response.statusCode}");
           }
 
           if (!receivedResponse) {
-            throw Exception("No response received from Gemini.");
+            throw Exception("No response received from API.");
           }
 
-          break; // Exit the loop if the stream completes successfully
+          // //* check if response is valid
+          // final response_valid =
+          //     await reportService.checkResponseGemini(fullResponse);
+
+          // if (response_valid != "Success") {
+          //   _isLoading = false;
+          //   _isGeminiTyping = false;
+          //   break;
+          // }
+
+          messages = [
+            ChatMessage(
+              user: geminiUser,
+              createdAt: DateTime.now(),
+              text: fullResponse,
+            ),
+            ...messages
+          ];
+
+          setState(() {});
+          break; // Exit the loop on success
         } catch (e) {
           print("Attempt ${attempt + 1} error: $e");
           attempt++;
@@ -184,7 +276,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
             return;
           }
 
-          // Exponential backoff before retrying
           await Future.delayed(Duration(seconds: attempt * 2));
         }
       }
@@ -225,24 +316,5 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         ...messages
       ];
     });
-  }
-
-  Future<void> _ImageMessage() async {
-    ImagePicker picker = ImagePicker();
-    XFile? file = await picker.pickImage(
-      source: ImageSource.gallery,
-    );
-
-    if (file != null) {
-      ChatMessage message = ChatMessage(
-          user: currentUser,
-          createdAt: DateTime.now(),
-          text:
-              "Describe the picture you see and give some information about it?",
-          medias: [
-            ChatMedia(url: file.path, fileName: "", type: MediaType.image)
-          ]);
-      _sendMessages(message);
-    }
   }
 }

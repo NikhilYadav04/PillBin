@@ -1,7 +1,6 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get.dart';
 import 'package:pillbin/helper/keys.dart';
@@ -19,6 +18,9 @@ void main() async {
   await Gemini.init(
     apiKey: Keys.apiKey,
   );
+
+  //* initialize dotenv
+  await dotenv.load();
 
   // Set preferred orientation globally for tablets
   await SystemChrome.setPreferredOrientations([
