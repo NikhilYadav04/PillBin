@@ -30,7 +30,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   final GetxReport controller = Get.put(GetxReport());
   final ReportService reportService =
       ReportService(baseURL: dotenv.get("baseURL"));
-  String question = "";
+  String questionChat = "";
 
   List<ChatMessage> messages = [];
 
@@ -157,8 +157,12 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                             showModalBottomSheet(
                                 context: context,
                                 builder: (context) {
-                                  return reportCard(context, controller,
-                                      question, message.text, reportService);
+                                  return reportCard(
+                                      context,
+                                      controller,
+                                      questionChat,
+                                      message.text,
+                                      reportService);
                                 });
                             //* report content
                           },
@@ -197,7 +201,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       _isLoading = true;
       _isGeminiTyping = true;
       messages = [chatMessage, ...messages];
-      question = chatMessage.text;
+      questionChat = chatMessage.text;
     });
 
     try {
@@ -207,11 +211,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       int attempt = 0;
 
       // //* check the question is valid
-      final response = await reportService.checkUserAskedQuestion(question);
+      final response = await reportService.checkUserAskedQuestion(questionChat);
 
       if (response != "Success") {
-        var logger = Logger();
-        logger.d(response);
         toastErrorSlide(context, response);
         setState(() {
           _isLoading = false;
@@ -252,6 +254,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           // //* check if response is valid
           final response_valid =
               await reportService.checkResponseGemini(fullResponse);
+
+          var logger = Logger();
+          logger.d(fullResponse);
 
           if (response_valid != "Success") {
             _isLoading = false;

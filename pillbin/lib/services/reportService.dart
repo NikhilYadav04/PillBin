@@ -13,6 +13,8 @@ class ReportService {
 //* check user asked question API
   Future<String> checkUserAskedQuestion(String question) async {
     try {
+      var logger = Logger();
+      logger.d(question);
       final url = Uri.parse("${baseURL}/report/check-question");
 
       final body = jsonEncode({'question': question});

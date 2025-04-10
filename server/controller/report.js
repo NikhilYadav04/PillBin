@@ -75,14 +75,14 @@ export const check_response = async (req, res) => {
   try {
     const { response } = req.body;
 
-    //* check if response contains banned words
-    if (containsBannedWords(response)) {
-      return res.status(403).json({
-        success: false,
-        message:
-          "The response has been flagged due to inappropriate words. Please try another question.",
-      });
-    }
+    // //* check if response contains banned words
+    // if (containsBannedWords(response)) {
+    //   return res.status(403).json({
+    //     success: false,
+    //     message:
+    //       "The response has been flagged due to inappropriate words. Please try another question.",
+    //   });
+    // }
 
     let isSafe = false;
 
@@ -109,8 +109,7 @@ export const check_response = async (req, res) => {
       if (isSafe) {
         return res.status(403).json({
           success: false,
-          message:
-            `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
+          message: `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
         });
       }
 
