@@ -2,18 +2,20 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:logger/logger.dart';
 
 class ReportService {
   final String baseURL;
+  var logger = Logger();
 
   ReportService({required this.baseURL});
 
 //* check user asked question API
   Future<String> checkUserAskedQuestion(String question) async {
     try {
-      final url = Uri.parse("https://${baseURL}/report/check-question");
+      final url = Uri.parse("${baseURL}/report/check-question");
 
-      final body = jsonEncode({question});
+      final body = jsonEncode({'question': question});
 
       final response = await http.post(url,
           headers: {'Content-Type': 'application/json'}, body: body);
@@ -37,7 +39,7 @@ class ReportService {
 //* check response API
   Future<String> checkResponseGemini(String responseG) async {
     try {
-      final url = Uri.parse("https://${baseURL}/report/check-response");
+      final url = Uri.parse("${baseURL}/report/check-response");
 
       final body = jsonEncode({"response": responseG});
 
@@ -45,6 +47,7 @@ class ReportService {
           headers: {'Content-Type': 'application/json'}, body: body);
 
       final responseBody = jsonDecode(responseRec.body);
+      logger.d(responseBody["message"]);
 
       if (responseRec.statusCode == 200) {
         return "Success";
@@ -54,6 +57,7 @@ class ReportService {
         return "Error";
       }
     } catch (e) {
+      logger.d(e.toString());
       return "Error : ${e.toString()}";
     }
   }
@@ -62,11 +66,16 @@ class ReportService {
   Future<String> reportResponse(
       String question, String response, String type) async {
     try {
-      final url = Uri.parse("https://${baseURL}/report/submit");
+      final url = Uri.parse("${baseURL}/report/submit");
 
       final date = DateFormat("d MMM yyyy").format(DateTime.now());
 
-      final body = jsonEncode({question, response, type, date});
+      final body = jsonEncode({
+        "question": question,
+        "response": response,
+        "type": type,
+        "date": date
+      });
 
       final responseRec = await http.post(url,
           headers: {'Content-Type': 'application/json'}, body: body);

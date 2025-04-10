@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logger/logger.dart';
 import 'package:pillbin/controller/GetX_report.dart';
 import 'package:pillbin/services/reportService.dart';
 import 'package:pillbin/styling/colors/colors.dart';
@@ -28,7 +29,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   final GetxReport controller = Get.put(GetxReport());
   final ReportService reportService =
-      ReportService(baseURL: dotenv.get("PC_IP"));
+      ReportService(baseURL: dotenv.get("baseURL"));
+  String question = "";
 
   List<ChatMessage> messages = [];
 
@@ -155,11 +157,10 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                             showModalBottomSheet(
                                 context: context,
                                 builder: (context) {
-                                  return reportCard(controller);
+                                  return reportCard(context, controller,
+                                      question, message.text, reportService);
                                 });
                             //* report content
-                            toastSuccessSlide(
-                                context, "Response Reported Successfully");
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blueAccent,
@@ -196,6 +197,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       _isLoading = true;
       _isGeminiTyping = true;
       messages = [chatMessage, ...messages];
+      question = chatMessage.text;
     });
 
     try {
@@ -205,16 +207,18 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       int attempt = 0;
 
       // //* check the question is valid
-      // final response = await reportService.checkUserAskedQuestion(question);
+      final response = await reportService.checkUserAskedQuestion(question);
 
-      // if (response != "Success") {
-      //   toastErrorSlide(context, response);
-      //   setState(() {
-      //     _isLoading = false;
-      //     _isGeminiTyping = false;
-      //   });
-      //   return;
-      // }
+      if (response != "Success") {
+        var logger = Logger();
+        logger.d(response);
+        toastErrorSlide(context, response);
+        setState(() {
+          _isLoading = false;
+          _isGeminiTyping = false;
+        });
+        return;
+      }
 
       bool receivedResponse = false;
       String fullResponse = "";
@@ -226,7 +230,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           }
 
           print("Making API call to localhost...");
-          final IP = await dotenv.get('PC_IP');
+          // final IP = await dotenv.get('PC_IP');
           final response = await http.post(
             Uri.parse("https://gemini-server-2.onrender.com/generate"),
             headers: {"Content-Type": "application/json"},
@@ -246,14 +250,14 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           }
 
           // //* check if response is valid
-          // final response_valid =
-          //     await reportService.checkResponseGemini(fullResponse);
+          final response_valid =
+              await reportService.checkResponseGemini(fullResponse);
 
-          // if (response_valid != "Success") {
-          //   _isLoading = false;
-          //   _isGeminiTyping = false;
-          //   break;
-          // }
+          if (response_valid != "Success") {
+            _isLoading = false;
+            _isGeminiTyping = false;
+            break;
+          }
 
           messages = [
             ChatMessage(

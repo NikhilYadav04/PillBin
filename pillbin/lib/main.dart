@@ -21,6 +21,7 @@ void main() async {
 
   //* initialize dotenv
   await dotenv.load();
+  
 
   // Set preferred orientation globally for tablets
   await SystemChrome.setPreferredOrientations([
