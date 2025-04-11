@@ -85,13 +85,13 @@ export const check_response = async (req, res) => {
     const { response } = req.body;
 
     // //* check if response contains banned words
-    // if (containsBannedWords(response)) {
-    //   return res.status(403).json({
-    //     success: false,
-    //     message:
-    //       "The response has been flagged due to inappropriate words. Please try another question.",
-    //   });
-    // }
+    if (containsBannedWords(response)) {
+      return res.status(403).json({
+        success: false,
+        message:
+          "The response has been flagged due to inappropriate words. Please try another question.",
+      });
+    }
 
     let isSafe = false;
 
@@ -100,30 +100,17 @@ export const check_response = async (req, res) => {
 
     report ? (isSafe = true) : (isSafe = false);
 
-    const lines = response.trim().split("\n").slice(0, 2); //* Get first 2 lines
-
-    for (const line of lines) {
-      const words = line.trim().split(/\s+/); //* Split each line into words
-
-      for (const word of words) {
-        const reportMatch = await Report.findOne({
-          response: { $regex: word, $options: "i" }, //* Case-insensitive partial match
-        });
-
-        if (reportMatch) {
-          isSafe = false;
-          return res.status(403).json({
-            success: false,
-            message: `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
-          });
-        }
-      }
-
-      res.status(200).json({
-        success: true,
-        message: "Your response has been accepted.",
+    if (isSafe) {
+      return res.status(403).json({
+        success: false,
+        message: `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
       });
     }
+
+    res.status(200).json({
+      success: true,
+      message: "Your response has been accepted.",
+    });
   } catch (e) {
     return res.status(500).json({
       success: false,
