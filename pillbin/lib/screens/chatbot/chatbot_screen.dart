@@ -261,6 +261,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           if (response_valid != "Success") {
             _isLoading = false;
             _isGeminiTyping = false;
+            toastErrorSlide(context, response_valid);
             break;
           }
 

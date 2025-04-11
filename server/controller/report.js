@@ -6,6 +6,15 @@ export const submit = async (req, res) => {
     //* get the data from req body
     const { question, response, type, date } = req.body;
 
+    const report = await Report.findOne({ question, response });
+
+    if (report) {
+      return res.status(403).json({
+        success: false,
+        message: "The response has already been flagged by other users.",
+      });
+    }
+
     //* submit the data in database
     const reportBody = new Report({
       question,
@@ -91,26 +100,23 @@ export const check_response = async (req, res) => {
 
     report ? (isSafe = true) : (isSafe = false);
 
-    //* check if top 5 lines match with any response
-    const lines = response
-      .trim()
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .slice(0, 5);
+    const lines = response.trim().split("\n").slice(0, 2); //* Get first 2 lines
 
     for (const line of lines) {
-      const reportMatch = await Report.findOne({
-        response: { $regex: line, $options: "i" }, //* case-insensitive partial match
-      });
+      const words = line.trim().split(/\s+/); //* Split each line into words
 
-      reportMatch ? (isSafe = true) : (isSafe = false);
-
-      if (isSafe) {
-        return res.status(403).json({
-          success: false,
-          message: `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
+      for (const word of words) {
+        const reportMatch = await Report.findOne({
+          response: { $regex: word, $options: "i" }, //* Case-insensitive partial match
         });
+
+        if (reportMatch) {
+          isSafe = false;
+          return res.status(403).json({
+            success: false,
+            message: `The response has been flagged as ${reportMatch.type} by users. Please try another question.`,
+          });
+        }
       }
 
       res.status(200).json({

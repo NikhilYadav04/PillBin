@@ -55,6 +55,8 @@ Widget reportCard(BuildContext context, GetxReport controller, String question,
               } else {
                 toastSuccessSlide(context, response_string);
               }
+
+             Navigator.pop(context); 
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blueAccent,
