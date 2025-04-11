@@ -52,11 +52,13 @@ Widget reportCard(BuildContext context, GetxReport controller, String question,
               if (response_string.startsWith("Error")) {
                 toastErrorSlide(
                     context, "Error Reporting Response, Please Try Again !!");
+                Navigator.pop(context, false);
               } else {
                 toastSuccessSlide(context, response_string);
+                Navigator.pop(context, true);
               }
 
-             Navigator.pop(context); 
+              //Navigator.pop(context,true);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blueAccent,

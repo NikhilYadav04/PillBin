@@ -135,55 +135,74 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 ? SelectableText(
                     message.text, // The message text
                     style: TextStyle(
+                      fontSize: 1.63272*SizeConfig.heightMultiplier,
                       color: message.user.id == currentUser.id
                           ? Colors.black // Current user text color
                           : Colors.black, // Other users text color
                     ),
                   )
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SelectableText(
-                        message.text,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: "Glacial_Bold",
+                : Container(
+                  width: 63.2*SizeConfig.widthMultiplier,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SelectableText(
+                          message.text,
+                          style: TextStyle(
+                            fontSize: 1.63272*SizeConfig.heightMultiplier,
+                            color: Colors.black,
+                            fontFamily: "Glacial_Bold",
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 4.213484 * SizeConfig.heightMultiplier,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            showModalBottomSheet(
+                        SizedBox(
+                          height: 4.213484 * SizeConfig.heightMultiplier,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              final shouldClear =
+                                  await showModalBottomSheet<bool>(
                                 context: context,
                                 builder: (context) {
                                   return reportCard(
-                                      context,
-                                      controller,
-                                      questionChat,
-                                      message.text,
-                                      reportService);
+                                    context,
+                                    controller,
+                                    questionChat,
+                                    message.text,
+                                    reportService,
+                                  );
+                                },
+                              );
+                  
+                              //* After bottom sheet is closed
+                              if (shouldClear == true) {
+                                setState(() {
+                                  //* Remove the first Gemini message if it exists
+                                  messages.removeWhere(
+                                    (msg) =>
+                                        msg.user == geminiUser &&
+                                        msg.text == messages.first.text,
+                                  );
                                 });
-                            //* report content
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  0.84269 * SizeConfig.heightMultiplier),
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blueAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    0.84269 * SizeConfig.heightMultiplier),
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            "Report Response",
-                            style: TextStyle(
-                              fontSize: 1.47471 * SizeConfig.heightMultiplier,
-                              color: Colors.white,
+                            child: Text(
+                              "Report Response",
+                              style: TextStyle(
+                                fontSize: 1.47471 * SizeConfig.heightMultiplier,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
+                      ],
+                    ),
+                );
           },
           timeTextColor: Colors.black,
           currentUserContainerColor: Colours.Light_Blue,
